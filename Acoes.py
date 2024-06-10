@@ -302,10 +302,12 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                         print(f"{inimigo} Avançou no {p} ! ")
                         sleep(1)
                         chances()
-                        if chance > 2:
+                        if chance >= 3:
                             sleep(1)
                             golpe_a_i(i_dano,i_dano2,inimigo)
-
+                        if chance <= 2:
+                            sleep(1)
+                            print("O Inimigo errou o golpe!")
 
                 if player['vida'] <=0:
                     Hud_player()
