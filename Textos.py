@@ -9,7 +9,7 @@ def calcular_defesa_total(p):
         defesa_total += armadura['def']
     return defesa_total
     
-
+#isso é um puta de um comentário ooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 def display_npc_hp_bar(current_hp, max_hp,inimigo,i_level,i_xp, bar_length=10):
     ratio = current_hp / max_hp
