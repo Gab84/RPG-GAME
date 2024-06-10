@@ -299,7 +299,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     
 
                 if i_vida > 0 :
-                        print(f"{inimigo} Avançou no p ! ")
+                        print(f"{inimigo} Avançou no {p} ! ")
                         sleep(1)
                         chances()
                         if chance > 2:
