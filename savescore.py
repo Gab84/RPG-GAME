@@ -13,12 +13,11 @@ def get_ranking():
     ranking_list = [(ranking.to_dict()['player_name'], ranking.to_dict()['score']) for ranking in rankings]
     return ranking_list
 
-player_name = player['nome']
-score = player['pontos']
-def save_score(player_name, score):
+
+def save_score():
     rankings_ref = db.collection('rankings')
     rankings_ref.add({
-        'player_name': player_name,
-        'score': score
+        'player_name': player['nome'],
+        'score': player['pontos']
     })
 

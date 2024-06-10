@@ -114,7 +114,7 @@ def part8():
     txtlore(f"PARABÉNS, VOCÊ CHEGOU ATÉ O FINAL DO GAME, VOCÊ PODE AUMENTAR SUA PONTUAÇÃO LUTANDO CONTRA OUTROS INIMIGOS SEGUINDO O MODO INFINITO DO GAME OU PODE SAIR AGORA E SALVAR SUA PONTUAÇÃO NO NOSSO RANKING PRA MOSTRAR PRA TODOS O SEU PODER . ", delay=0.05)
     X = int(input('DESEJA FAZER OQUE ? 1) FINALIZAR O GAME. '))
     if X == 1:
-        save_score(player_name, score)
+        save_score()
         ranking = get_ranking()
         print('FOI MUITO BOM TER SUA COMPANHIA ATÉ ESSE MOMENTO, OBRIGADO POR TESTAR O JOGO !')
         print("Ranking:")
