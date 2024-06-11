@@ -16,8 +16,6 @@ def aplicar_raridade(item, raridade):
         item['dano'] = [int(d * multiplicador) for d in item['dano']]
     if 'def' in item:
         item['def'] = int(item['def'] * multiplicador)
-    if 'cura' in item:
-        item['cura'] = int(item['cura'] * multiplicador)
     if 'preco' in item:
         item['preco'] = int(item['preco'] * multiplicador)
     item['raridade'] = raridade
@@ -28,16 +26,20 @@ def gerar_raridade():
     return random.choice(list(raridades.keys()))
 
 # Função para aplicar raridade a todos os itens
-def gerar_raridades_itens(armas, consumiveis, equipamentos):
+def gerar_raridades_itens(armas, equipamentos):
     for arma in armas.values():
         raridade = gerar_raridade()
         aplicar_raridade(arma, raridade)
-    for consumivel in consumiveis.values():
-        raridade = gerar_raridade()
-        aplicar_raridade(consumivel, raridade)
     for equipamento in equipamentos.values():
         raridade = gerar_raridade()
         aplicar_raridade(equipamento, raridade)
+    
+    #removido pois acho que nao precisa gerar raridade de itens, deixar eles sempre padroes.
+"""    for consumivel in consumiveis.values():
+        raridade = gerar_raridade()
+        aplicar_raridade(consumivel, raridade)"""
+
+
 
 # Dados dos itens
 
