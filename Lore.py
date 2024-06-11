@@ -74,8 +74,8 @@ def part2():
         clear_terminal()
         A_B01()
     else:
-        print('Desculpe, esse caminho ainda não está concluido.')
-        x = int(input('Qual caminho seguir ? \n1)direita \n2)esquerda \n> '))
+        print('Desculpe, esse caminho ainda não está concluido. escolha o outro :)')
+        part2()
     
 
 def part3():
