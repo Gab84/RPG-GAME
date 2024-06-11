@@ -17,36 +17,36 @@ def chance_drop_inimigos():
     gerar_raridades_itens(consumiveis,equipamentos,armas)
     drop_c = randint(1,5)
     if drop_c == 1:
-        drop = input(f'Inimigo dropou um capacete. deseja pegar ? S/N > ')
-        if drop == 's':
+        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        if drop == 1:
             equip_cap()
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 2:
-        drop = input(f'Inimigo dropou um peitoral. deseja pegar ? S/N > ')
-        if drop == 's':
+        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        if drop == 1:
             equip_pet()
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 3:
-        drop = input(f'Inimigo dropou uma calça. deseja pegar ? S/N > ')
-        if drop == 's':
+        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        if drop == 1:
             equip_cal()
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 4:
-        drop = input(f'Inimigo dropou uma bota. deseja pegar ? S/N > ')
-        if drop == 's':
+        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        if drop == 1:
             equip_bot()
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 5:
-        drop = input(f'Inimigo dropou uma espada. deseja pegar ? S/N > ')
-        if drop == 's':
+        drop = int(int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > ')))
+        if drop == 1:
             equip_espada_curta()
         else:
             print('Você ignorou o item.')
@@ -175,6 +175,7 @@ def inventario():
         
     else:
         print("ESSE ITEM NÃO ESTÁ NO SEU INVENTARIO OU SEU INVENTARIO ESTÁ VAZIO.")
+        return
         novo_i_aleatorio()
         reset_inimigos() 
 
@@ -214,6 +215,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                 Hud_player()
                 if i_vida > 0:
                     display_npc_hp_bar(current_hp=i_vida,max_hp=i_vida_m,i_level=i_level,i_xp=i_xp,inimigo=inimigo,bar_length=10)
+                    print('')
                 atq = int(input(f"DESEJA FAZER OQUE? \nAÇÕOES -->  {player['golpes'][0]}🗡️  : DANO : {player['dano'][0]} ❤️  | {player['golpes'][1]}🗡️  : DANO : {player['dano'][1]} ❤️  | {player['golpes'][2]} 🩹 : CURA: {player['cura']} ❤️  | {player['golpes'][3]}🎒 : ABRIR INVENTARIO \n> "))
                 clear_terminal()
                 classe_tipo = determinar_classe_tipo(player['classe'])
@@ -290,8 +292,12 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                 #Cura
                 elif atq == 3:
                     #print(p_vida)
-                    p_curar()
-                    print(f"{p} curou {p_cura} essa é a nova vida do p {player['vida']}")
+                    if player['mana'] > 0:
+                        p_curar()
+                        player['mana'] -= 25
+                        print(f"{p} curou {p_cura} essa é a nova vida do p {player['vida']} você gastou 25 de mana. ")
+                    else:
+                        print('Você não tem mana o suficiente para usar. Você passou a vez.')
                 
                 elif atq == 4:
                     inventario_m()
