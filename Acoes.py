@@ -351,6 +351,8 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     print(F"O INIMIGO DEIXOU {coin} DINHEIROS💸, VOCÊ QUE NÃO É BOBO JÁ LANÇOU PROS BOLSO")
                     player['dinheiro'] += coin
                     player['pontos'] += i_pt
+                    #MEXENDO AQUI PRA VER A QUESTAO DA ARMADURA
+                    
                     chance_drop_inimigos()
                     perg = 3 # int(input("  #Deseja ir pro proximo inimigo? // usar item // seguir lore //"))
                     if  perg == 3:  #// faz ação desejada
