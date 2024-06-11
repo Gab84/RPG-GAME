@@ -112,18 +112,26 @@ def golpe_a_i(i_dano,i_dano2,i_nome):
             sleep(1)
             if player['defesa'] > 0:
                 player['defesa'] -= i_dano
+                print(f"{i_nome} ESTÁ AVANÇANDO !")
+                sleep(1)
+                print(f"{i_nome} ACERTOU O GOLPE ! !")
+                sleep(1)
+                print('====== RELATORIO =====')
+                print(f"{i_nome} CAUSOU {i_dano} DE DANO NA DEFESA DO PLAYER ")
+                print('====== RELATORIO =====')
+                sleep(2)      
                 if player['defesa'] <=0 :
                     player['defesa'] = 0
             if player['defesa'] <= 0 :
                     player['vida'] -= i_dano
-            print(f"{i_nome} ESTÁ AVANÇANDO !")
-            sleep(1)
-            print(f"{i_nome} ACERTOU O GOLPE ! !")
-            sleep(1)
-            print('====== RELATORIO =====')
-            print(f"{i_nome} CAUSOU {i_dano} DE DANO")
-            print('====== RELATORIO =====')
-            sleep(2)      
+                    print(f"{i_nome} ESTÁ AVANÇANDO !")
+                    sleep(1)
+                    print(f"{i_nome} ACERTOU O GOLPE ! !")
+                    sleep(1)
+                    print('====== RELATORIO =====')
+                    print(f"{i_nome} CAUSOU {i_dano} DE DANO")
+                    print('====== RELATORIO =====')
+                    sleep(2)      
     elif chance <= 2:
             print(f"{i_nome} USOU ATAQUE FORTE !")
             sleep(1)
