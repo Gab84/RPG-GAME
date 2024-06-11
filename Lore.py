@@ -73,6 +73,9 @@ def part2():
         sleep(1)
         clear_terminal()
         A_B01()
+    else:
+        print('Desculpe, esse caminho ainda não está concluido.')
+        x = int(input('Qual caminho seguir ? \n1)direita \n2)esquerda \n> '))
     
 
 def part3():
@@ -154,7 +157,7 @@ def p():
     part5()
     part6()
     part7()
-    
+    part8()
     
     
 PLAY()
