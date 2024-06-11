@@ -331,7 +331,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     player['dinheiro'] += coin
                     player['pontos'] += i_pt
                     chance_drop_inimigos()
-                    perg = int(input("Deseja ir pro proximo inimigo? // usar item // seguir lore //"))
+                    perg = 3 # int(input("  #Deseja ir pro proximo inimigo? // usar item // seguir lore //"))
                     if  perg == 3:  #// faz ação desejada
                         reset_inimigos()
                         print('Chamar função da proxima parte da historia') #
