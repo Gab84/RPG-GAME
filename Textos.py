@@ -204,8 +204,8 @@ def txt_str():
  ▐      ▐   ▐   █     ▐  ▐     ▐   ▐   ▐   █    █     █    ▐   █    ▐   █                 
                 ▐                          ▐    ▐     ▐        ▐        ▐                 
                 
-                                                                                                    LORE BY > CLEBER/GAB 
-                                                                                                    PROGRAMAÇÃO > GAB 
+                                                                                                    Versão de TESTES 
+                                                                                                    
           """)
 
 
