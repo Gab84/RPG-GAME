@@ -126,7 +126,7 @@ def part8():
         sleep(5)
         parar()
 def PLAY():
-    print (player)
+    
     while True:
         print("1. Iniciar Jogo")
         print("2. Ver Ranking")
