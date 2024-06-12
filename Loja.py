@@ -4,35 +4,50 @@ from classes import*
 from time import sleep
 
 l_itens_alexandre = ['suco_maça', 'cafezin',]
-l_itens_bathemofh = [
-    armas['adaga']['nome_colorido'],
-    armas['espada_curta']['nome_colorido'],
-    armas['cajado']['nome_colorido'],
-    armas['varinha']['nome_colorido'],
-    armas['machado']['nome_colorido']
-]
-
-l_itens_Bartolomeu = ['capacete','capacete','peitoral','calca','bota']
+l_itens_bathemofh = []
+l_itens_Bartolomeu = []
 
 
 loja_Alexandre = {
     #nome do npc
     'nome' : 'Alexandre',
     'itens' : l_itens_alexandre,
-    'preco' : ['suco_maça : 15 Coins ','cafezin : 10 Coins ']
 }
 loja_Bathemofh = {
     #nome do npc
     'nome' : 'Bathemofh',
     'itens' : l_itens_bathemofh,
-    'preco' : ['adaga : 10','espada_curta : 15','cajado : 10','varinha : 10','machado : 20',]
 }
 loja_Bartolomeu = {
     #nome do npc
     'nome' : 'Bartolomeu',
     'itens' : l_itens_Bartolomeu,
-    'preco' : ['capacete : 10','peitoral : 15','calca : 10','bota : 10',]
 }
+
+#Updates
+def update_armas():
+    l_itens_bathemofh = [
+    armas['adaga']['nome_colorido'],
+    armas['espada_curta']['nome_colorido'],
+    armas['cajado']['nome_colorido'],
+    armas['varinha']['nome_colorido'],
+    armas['machado']['nome_colorido']
+                    ]
+    loja_Bathemofh.update({
+        'itens': l_itens_bathemofh})
+    
+def update_amaduras():
+    l_itens_Bartolomeu = [
+    equipamentos['capacete']['nome_colorido'],
+    equipamentos['peitoral']['nome_colorido'],
+    equipamentos['calca']['nome_colorido'],
+    equipamentos['bota']['nome_colorido'],
+                    ]
+    loja_Bartolomeu.update({
+        'itens': l_itens_Bartolomeu})
+
+
+
 
 
 
@@ -80,6 +95,7 @@ def loja(npc):
 
 def loja_a(npc):
     gerar_raridades_itens(armas, equipamentos)
+    update_armas()
     txt_lj_a()
     print('================================================================')
     sleep(2)
@@ -128,6 +144,7 @@ def loja_a(npc):
 
 def loja_e(npc):
     gerar_raridades_itens(armas, equipamentos)
+    update_amaduras()
     txt_lj_ar()
     print('================================================================')
     sleep(2)
@@ -182,6 +199,6 @@ print(armas['adaga']['nome_colorido'])
 #escolha_classe()
 
 
-loja_a(npc=loja_Bathemofh)
+#loja_a(npc=loja_Bathemofh)
 #loja(npc=loja_Alexandre)
-#loja_e(npc=loja_Bartolomeu)
+loja_e(npc=loja_Bartolomeu)
