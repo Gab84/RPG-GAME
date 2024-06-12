@@ -1,6 +1,6 @@
 from Player import player
 from Personagens import *
-from Textos import desc_Furtivo,Hud_player,desc_armas,txtlore
+from Textos import desc_Furtivo,Hud_player,desc_armas_i,txtlore
 from Itens import armas,consumiveis,equipamentos
 from time import sleep
 import os
@@ -391,7 +391,7 @@ def escolha_arma():
     print('')
     print("ESCOLHE UMA ARMA PRA VOCÊ NÃO SAIR DE MÃOS VAZIAS ")
     print('')
-    desc_armas()
+    desc_armas_i()
     print('')
     x = int(input('1) ADAGA | 2) ESPADA_CURTA | 3) CAJADO | 4) VARINHA | 5) MACHADO |'))
     if x == 1:
