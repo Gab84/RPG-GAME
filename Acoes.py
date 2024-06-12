@@ -24,28 +24,28 @@ def chance_drop_inimigos():
             print('Você ignorou o item.')
             return
     if drop_c == 2:
-        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        drop = int(input(f'Inimigo dropou um peitoral. deseja pegar ? \n1>Sim \n2>Nao > '))
         if drop == 1:
             equip_pet()
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 3:
-        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        drop = int(input(f'Inimigo dropou uma calça. deseja pegar ? \n1>Sim \n2>Nao > '))
         if drop == 1:
             equip_cal()
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 4:
-        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        drop = int(input(f'Inimigo dropou uma bota. deseja pegar ? \n1>Sim \n2>Nao > '))
         if drop == 1:
             equip_bot()
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 5:
-        drop = int(int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > ')))
+        drop = int(int(input(f'Inimigo dropou um espada_curta. deseja pegar ? \n1>Sim \n2>Nao > ')))
         if drop == 1:
             equip_espada_curta()
         else:
