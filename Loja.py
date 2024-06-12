@@ -1,5 +1,5 @@
 from Itens import * 
-from Textos import Hud_player, desc_itens,txt_lj_i,txt_lj_a,txt_lj_ar,desc_armaduras
+from Textos import Hud_player, desc_itens,txt_lj_i,txt_lj_a,txt_lj_ar,desc_armaduras,desc_armas
 from classes import*
 from time import sleep
 
