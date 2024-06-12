@@ -14,7 +14,7 @@ from Loja import *
 
 
 def chance_drop_inimigos():
-    gerar_raridades_itens(consumiveis,equipamentos,armas)
+    gerar_raridades_itens(consumiveis,armas)
     drop_c = randint(1,5)
     if drop_c == 1:
         drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
