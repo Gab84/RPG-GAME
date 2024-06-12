@@ -6,7 +6,8 @@ armas = {
         'dano':[12,15],
         'preco' : 10,
         'raridade': [],
-        'pontos' : 10
+        'pontos' : 10,
+        'nome_colorido': ''
     },
     
     'espada_curta':{
@@ -14,7 +15,8 @@ armas = {
         'nome':'espada_curta',
         'preco' : 15,
         'raridade': [],
-        'pontos' : 10
+        'pontos' : 10,
+        'nome_colorido': ''
 
     },
     'cajado':{
@@ -22,21 +24,24 @@ armas = {
         'nome': 'cajado',
         'preco' : 10,
         'raridade': [],
-        'pontos' : 10
+        'pontos' : 10,
+        'nome_colorido': ''
     },
     'varinha':{
         'dano':[10,20],
         'nome': 'varinha',
         'preco' : 10,
         'raridade': [],
-        'pontos' : 10
+        'pontos' : 10,
+        'nome_colorido': ''
     },
     'machado':{
         'dano':[15,20],
         'nome' : 'machado',
         'preco' : 20,
         'raridade': [],
-        'pontos' : 10
+        'pontos' : 10,
+        'nome_colorido': ''
     },
     
     
@@ -67,28 +72,32 @@ equipamentos = {
         'def' : 3,
         'raridade': [],
         'preco': 10,
-        'pontos' : 15
+        'pontos' : 15,
+        'nome_colorido': ''
     },
     'peitoral' : {
         'nome' : 'peitoral',
         'def' : 5,
         'raridade': [],
         'preco': 20,
-        'pontos' : 30
+        'pontos' : 30,
+        'nome_colorido': ''
     },
     'calca' : {
         'nome' : 'calca',
         'def' : 4,
         'raridade': [],
         'preco': 15,
-        'pontos' : 22
+        'pontos' : 22,
+        'nome_colorido': ''
     },
     'bota' : {
         'nome' : 'bota',
         'def' : 2,
         'raridade': [],
         'preco': 5,
-        'pontos' : 13
+        'pontos' : 13,
+        'nome_colorido': ''
     },
 
     
@@ -133,3 +142,4 @@ funcoes_consumiveis = {
 
 
 
+print(armas['adaga']['nome'])

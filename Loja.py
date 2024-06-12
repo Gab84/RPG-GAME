@@ -4,7 +4,7 @@ from classes import*
 from time import sleep
 
 l_itens_alexandre = ['suco_maça', 'cafezin',]
-l_itens_bathemofh = ['adaga', 'espada_curta','cajado','varinha','machado']
+l_itens_bathemofh = [armas['adaga']['nome_colorido'],armas['espada_curta']['nome_colorido'],armas['cajado']['nome_colorido'],]
 l_itens_Bartolomeu = ['capacete','capacete','peitoral','calca','bota']
 
 
@@ -30,7 +30,7 @@ loja_Bartolomeu = {
 
 
 def loja(npc):
-    gerar_raridades_itens(armas, consumiveis, equipamentos)
+    gerar_raridades_itens(armas, equipamentos)
     txt_lj_i()
     print('================================================================')
     sleep(2)
@@ -72,7 +72,7 @@ def loja(npc):
 
 
 def loja_a(npc):
-    gerar_raridades_itens(armas, consumiveis, equipamentos)
+    gerar_raridades_itens(armas, equipamentos)
     txt_lj_a()
     print('================================================================')
     sleep(2)
@@ -120,7 +120,7 @@ def loja_a(npc):
 
 
 def loja_e(npc):
-    gerar_raridades_itens(armas, consumiveis, equipamentos)
+    gerar_raridades_itens(armas, equipamentos)
     txt_lj_ar()
     print('================================================================')
     sleep(2)
@@ -167,8 +167,14 @@ def loja_e(npc):
 
 
 
+gerar_raridades_itens(equipamentos,armas)
+print(armas['adaga']['nome_colorido'])
+
+
 
 #escolha_classe()
-#loja_a(npc=loja_Bathemofh)
+
+
+loja_a(npc=loja_Bathemofh)
 #loja(npc=loja_Alexandre)
 #loja_e(npc=loja_Bartolomeu)
