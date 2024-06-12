@@ -174,7 +174,8 @@ def inventario():
             #Executando a função correspondente ao item
         if item_desejado in funcoes_consumiveis:
             funcoes_consumiveis[item_desejado]()
-            x = int(input("Deseja ir pro proximo inimigo? // seguir lore "))
+            return
+            x = int(input("seguir lore "))
             if x == 1:
                 reset_inimigos()
                 novo_i_aleatorio()
