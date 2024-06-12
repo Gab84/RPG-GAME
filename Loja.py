@@ -4,7 +4,14 @@ from classes import*
 from time import sleep
 
 l_itens_alexandre = ['suco_maça', 'cafezin',]
-l_itens_bathemofh = [armas['adaga']['nome_colorido'],armas['espada_curta']['nome_colorido'],armas['cajado']['nome_colorido'],]
+l_itens_bathemofh = [
+    armas['adaga']['nome_colorido'],
+    armas['espada_curta']['nome_colorido'],
+    armas['cajado']['nome_colorido'],
+    armas['varinha']['nome_colorido'],
+    armas['machado']['nome_colorido']
+]
+
 l_itens_Bartolomeu = ['capacete','capacete','peitoral','calca','bota']
 
 

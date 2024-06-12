@@ -142,4 +142,4 @@ funcoes_consumiveis = {
 
 
 
-print(armas['adaga']['nome'])
+#print(armas['adaga']['nome'])
