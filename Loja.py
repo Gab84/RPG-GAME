@@ -7,7 +7,6 @@ l_itens_alexandre = ['suco_maça', 'cafezin',]
 l_itens_bathemofh = []
 l_itens_Bartolomeu = []
 
-
 loja_Alexandre = {
     #nome do npc
     'nome' : 'Alexandre',
@@ -45,9 +44,6 @@ def update_amaduras():
                     ]
     loja_Bartolomeu.update({
         'itens': l_itens_Bartolomeu})
-
-
-
 
 
 
@@ -190,15 +186,9 @@ def loja_e(npc):
 
 
 
-
-gerar_raridades_itens(equipamentos,armas)
-print(armas['adaga']['nome_colorido'])
-
-
-
 #escolha_classe()
 
 
 #loja_a(npc=loja_Bathemofh)
 #loja(npc=loja_Alexandre)
-loja_e(npc=loja_Bartolomeu)
+#loja_e(npc=loja_Bartolomeu)
