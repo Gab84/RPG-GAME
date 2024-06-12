@@ -220,6 +220,7 @@ def inventario_m():
 
 
 def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_dano2,p_cura,i_level,i_xp,p_atq_1,p_atq_2,): #p_xp,p_nv
+    df_max = player['defesa']
     sleep(3)
     clear_terminal()
     sleep(1)
@@ -352,6 +353,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     player['dinheiro'] += coin
                     player['pontos'] += i_pt
                     #MEXENDO AQUI PRA VER A QUESTAO DA ARMADURA
+                    player['defesa'] = df_max
                     
                     chance_drop_inimigos()
                     perg = int(input("1 > seguir lore // 2 > usar item //  "))
