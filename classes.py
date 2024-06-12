@@ -250,7 +250,7 @@ def determinar_classe_tipo(classe):
     return None
 
 def equip_arma(p, arma_nome):
-    gerar_raridades_itens(armas, consumiveis, equipamentos)
+    gerar_raridades_itens(armas, equipamentos)
     nova_arma = armas[arma_nome]
 
     if arma_nome  in p['armas']:
