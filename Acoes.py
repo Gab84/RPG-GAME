@@ -354,8 +354,8 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     #MEXENDO AQUI PRA VER A QUESTAO DA ARMADURA
                     
                     chance_drop_inimigos()
-                    perg = 3 # int(input("  #Deseja ir pro proximo inimigo? // usar item // seguir lore //"))
-                    if  perg == 3:  #// faz ação desejada
+                    perg = int(input("1 > seguir lore // 2 > usar item //  "))
+                    if  perg == 1:  #// faz ação desejada
                         reset_inimigos()
                         print('Chamar função da proxima parte da historia') #
                         return
@@ -363,7 +363,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                         inventario()
                         return
                             
-                    if perg == 1:
+                    if perg == 'roguelike':
                         novo_i_aleatorio()
                         reset_inimigos() 
                         return 
