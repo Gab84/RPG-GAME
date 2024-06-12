@@ -28,7 +28,7 @@ def A_B01():
     if x == 1:
         if player['classe'] == '2 > Mago':
             if player['mana'] == (player['mana_inicial'] +20):
-                print('Você já leu.')
+                print('Você já leu e não precisa ler novamente, escolha outro caminho.')
                 sleep(3)
                 clear_terminal()
                 sleep(1)
