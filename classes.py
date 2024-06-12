@@ -283,6 +283,7 @@ def equip_arma(p, arma_nome):
     
     p['dano'][0] = (d1 + p['dano_base'][0])
     p['dano'][1] = (d2 + p['dano_base'][1])
+    
     print(f"Você pegou uma arma com raridade {nova_arma['raridade']}")
     print(f"{nova_arma['nome_colorido']} FOI COLOCADO NA SUA MÃO, AGORA VOCÊ TA POTENTE {p['dano']}")
     p['armas'] = nova_arma['nome_colorido']
