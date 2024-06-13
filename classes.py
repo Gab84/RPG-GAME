@@ -6,6 +6,7 @@ from time import sleep
 import os
 import platform
 from Raridadesf import *
+import copy
 
 def clear_terminal():
     system_name = platform.system()
@@ -233,7 +234,7 @@ def escolha_classe():
         print(f"SEUS STATUS FORAM ATUALIZADOS")
         sleep(5)
         clear_terminal()
-        Hud_player()
+        #Hud_player()
         escolha_arma()
     else:
         print('PARA DE GRAÇA E ESCOLHE UMA QUE EXISTE VEI ')
@@ -250,49 +251,46 @@ def determinar_classe_tipo(classe):
     return None
 
 def equip_arma(p, arma_nome):
-    gerar_raridades_itens(armas, equipamentos)
-    nova_arma = armas[arma_nome]
-
-    if arma_nome  in p['armas']:
-        arma_atual_nome = p['armas'][0]
+    #gerar_raridades_itens(armas, equipamentos)
+    
+    #Eu acho que isso resolve o problema de mudar no hud do player tbm
+    nova_arma = copy.deepcopy(armas[arma_nome])
+    if arma_nome  in p['armas']['nome']:
+        arma_atual_nome = p['armas']['nome']
         arma_atual = armas[arma_atual_nome]
         print(f"Você já tem uma {arma_atual['nome']} equipada com raridade {arma_atual['raridade']}.")
         print(f"A nova arma é {nova_arma['nome']} com raridade {nova_arma['raridade']}.")
 
-        # Pergunta ao jogador se deseja substituir a arma existente
-        resposta = input("Deseja substituir a arma existente? (s/n): ")
-        if resposta.lower() != 's':
-            print("A arma foi substituída.")
-            return
-        else:
-            print(f"Você jogou fora a arma .")
+        while True:# Pergunta ao jogador se deseja substituir a arma existente
+            resposta = input("Deseja substituir a arma existente? \n1>Sim \n2>Não \n> ")
+            if resposta=='1':
+                print("A sua arma atual foi substituida.")
+                break
+            if resposta=='2':
+                print(f"Você Ignorou a Arma .")
+                return
+            else:
+                print("Opção inválida. Por favor, escolha 1 para 'Sim' ou 2 para 'Não'.")
 
     # Equipar a nova arma
-    p['armas'] = [arma_nome]
-    
+    p['armas'] = nova_arma  
     classe_tipo = determinar_classe_tipo(p['classe'])
-    
     if classe_tipo not in multiplicadores_dano:
         print("Classe do jogador inválida.")
         return
-    
     multiplicador = multiplicadores_dano[classe_tipo].get(arma_nome, 1)
-    
     d1 = int(nova_arma['dano'][0] * multiplicador)
     d2 = int(nova_arma['dano'][1] * multiplicador)
-    
     p['dano'][0] = (d1 + p['dano_base'][0])
     p['dano'][1] = (d2 + p['dano_base'][1])
-    
     print(f"Você pegou uma arma com raridade {nova_arma['raridade']}")
     print(f"{nova_arma['nome_colorido']} FOI COLOCADO NA SUA MÃO, AGORA VOCÊ TA POTENTE {p['dano']}")
-    p['armas'] = nova_arma['nome_colorido']
-
+    p['armas'] = nova_arma
 
 def eqp_arma_inicial(p, arma_nome):
-    nova_arma = armas[arma_nome]
-    p['armas'] = [arma_nome]
-    
+    nova_arma = copy.deepcopy(armas[arma_nome])
+    p['armas'] = nova_arma
+    p['armas']['nome_colorido'] = nova_arma['nome']
     classe_tipo = determinar_classe_tipo(p['classe'])
     
     if classe_tipo not in multiplicadores_dano:
@@ -310,7 +308,7 @@ def eqp_arma_inicial(p, arma_nome):
 
 
 def equip_armadura(p, armadura_nome):
-    armadura = equipamentos[armadura_nome]
+    armadura = copy.deepcopy(equipamentos[armadura_nome])
     
     # Verifica se uma armadura da mesma categoria já está equipada
     if armadura_nome in p['armaduras_equipadas']:
@@ -318,15 +316,19 @@ def equip_armadura(p, armadura_nome):
         print(f"Você já tem um {armadura_atual['nome']} equipado com raridade {armadura_atual['raridade']}.")
         print(f"A nova armadura é {armadura['nome']} com raridade {armadura['raridade']}.")
         
-        # Pergunta ao jogador se deseja substituir a armadura existente
-        resposta = input("Deseja substituir a armadura existente? (s/n): ")
-        if resposta.lower() != 'n':
-            print("A armadura não foi substituída.")
-            return
-        if resposta.lower() != 's':
-            # Remove a defesa da armadura antiga da defesa total do jogador
-            p['defesa'] -= armadura_atual['def']
-            print(f"Você substituiu a armadura {armadura_atual['nome']} por {armadura['nome']}.")
+        while True:
+            # Pergunta ao jogador se deseja substituir a armadura existente
+            resposta = input("Deseja substituir a armadura existente? \n1>Sim \n2>Não \n> ")
+            if resposta == '2':
+                print("A armadura não foi substituída.")
+                return
+            elif resposta == '1':
+                # Remove a defesa da armadura antiga da defesa total do jogador
+                p['defesa'] -= armadura_atual['def']
+                print(f"Você substituiu a armadura {armadura_atual['nome']} por {armadura['nome']}.")
+                break
+            else:
+                print("Opção inválida. Por favor, escolha 1 para 'Sim' ou 2 para 'Não'.")
     
     # Equipar a nova armadura
     p['armaduras_equipadas'][armadura_nome] = armadura

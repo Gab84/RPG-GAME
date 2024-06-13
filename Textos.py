@@ -78,6 +78,7 @@ def Hud_player():
     
     armaduras_equipadas = [armadura['nome_colorido'] for armadura in player['armaduras_equipadas'].values()]
     defesa_total = player['defesa']
+    armap = player['armas']['nome_colorido']
     
     print(f"""------------------------------
 JOGADOR 👤 : {player['nome']} 
@@ -87,7 +88,7 @@ Vida: {player_hp_bar} | Mana: {player_mana_bar}
 ------------------------------
 Armaduras 🛡️ : {', '.join(armaduras_equipadas) if armaduras_equipadas else 'Nenhuma'} | INVENTÁRIO 🎒 : {player['inventario']} | Dinheiro 💰 : {player['dinheiro']}
 
-Arma ⚔️ : {player['armas']}
+Arma ⚔️ : {armap}
 
 Nível 🌟 : {player['level']} | Exp 📚 : {player['exp']}/{player['exp_max']} {player_xp_bar} 
 

@@ -9,7 +9,7 @@ player = {
     'dano_base' : [1,1,0],
     'dano' : [0,0,0], # Inicializa zerado
     'golpes': ["golpe_basico (1) ",'golpe_forte (2) ','cura(3)','inventario(4)'],
-    'armas' : ['desarmado'],
+    'armas' : {},
     'mana' : 0,
     'mana_inicial': 0,
     'mana_max' : 100,
