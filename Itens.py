@@ -51,14 +51,14 @@ consumiveis = {
 
     'suco_maça' : {
         'nome' : 'suco_maça',
-        'cura' : 20,
+        'cura' : 30,
         'preco' : 15,
         'raridade': [],
         'pontos' : 20
     },
     'cafezin' : {
         'nome' : 'cafezin',
-        'cura' : 20,
+        'cura' : 30,
         'preco' : 10,
         'raridade': [],
         'pontos' : 25

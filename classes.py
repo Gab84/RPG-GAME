@@ -34,7 +34,7 @@ Furtivo = {
         'mana' : 50,
         'mana_inicial':50,
         'mana_max' : 100,
-        'cura' : 10,
+        'cura' : 20,
         'inventario' : ["suco_maça"],
         
     },
@@ -55,7 +55,7 @@ Furtivo = {
         'mana' : 50,
         'mana_inicial':50,
         'mana_max' : 100,
-        'cura' : 10,
+        'cura' : 20,
         'inventario' : ["suco_maça"],        
 
     }
@@ -79,7 +79,7 @@ Magias = {
         'mana' : 100,
         'mana_inicial':100,
         'mana_max' : 200,
-        'cura' : 10,
+        'cura' : 30,
         'inventario' : ["cafezin","cafezin"],
         
     },
@@ -100,7 +100,7 @@ Magias = {
         'mana' : 100,
         'mana_inicial':100,
         'mana_max' : 200,
-        'cura' : 10,
+        'cura' : 30,
         'inventario' : ["cafezin","cafezin"],        
 
     }
@@ -122,9 +122,9 @@ Corpo_a_corpo = {
         'golpes': ["soco (1)", 'chute (2)', 'cura(3)','inventario(4)'],
         'armas' : [],
         'mana' : 0,
-        'mana_inicial':0,
+        'mana_inicial':30,
         'mana_max' : 50,
-        'cura' : 50,
+        'cura' : 30,
         'inventario' : ["suco_maça"],
         
     },
