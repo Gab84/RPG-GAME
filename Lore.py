@@ -136,11 +136,7 @@ def PLAY():
         if choice == '1':
             p()
         elif choice == '2':
-            ranking = get_ranking()
-            print("Ranking:")
-            for rank in ranking:
-                print(f"{rank[0]} - {rank[1]}")
-                print('')
+            print_ranking()
         elif choice == '3':
             break
         else:
