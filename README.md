@@ -1,3 +1,6 @@
+# ANTES DE TUDO
+Vale ressaltar que TUDO no jogo ta em testes, a historia vai ser mudada e as formas que os acontecimentos são listados também 😅
+
 # RPG-GAME
 
 
