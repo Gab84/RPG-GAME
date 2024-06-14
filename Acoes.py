@@ -160,7 +160,7 @@ def golpe_a_i(i_dano,i_dano2,i_nome):
 
 def inventario():
     print('*SE O SEU INVENTARIO ESTIVER VAZIO OU VOCÊ ESCOLHER UM ITEM QUE NÃO EXISTE, VOCÊ IRA AVANÇAR SEM UTILIZAR NENHUM ITEM*')
-    x = int(input(f"Seus itens são {player['inventario']} deseja usar qual ? > "))-1
+    x = int(input(f"Seus itens são {player['inventario']} escolha um número de acordo com a posição do item que deseja usar.\n> "))-1
     if 0 <= x < len(player['inventario']): # Verificando se o índice está dentro do intervalo válido
         item_desejado = player['inventario'][x] # Acessando o item pelo índice fornecido
         print("VOCÊ QUER USAR :", item_desejado)
