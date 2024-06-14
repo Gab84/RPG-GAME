@@ -78,6 +78,7 @@ def Hud_player():
     
     armaduras_equipadas = [armadura['nome_colorido'] for armadura in player['armaduras_equipadas'].values()]
     defesa_total = player['defesa']
+    armap = player['armas']['nome_colorido']
     
     print(f"""------------------------------
 JOGADOR 👤 : {player['nome']} 
@@ -87,7 +88,7 @@ Vida: {player_hp_bar} | Mana: {player_mana_bar}
 ------------------------------
 Armaduras 🛡️ : {', '.join(armaduras_equipadas) if armaduras_equipadas else 'Nenhuma'} | INVENTÁRIO 🎒 : {player['inventario']} | Dinheiro 💰 : {player['dinheiro']}
 
-Arma ⚔️ : {player['armas']}
+Arma ⚔️ : {armap}
 
 Nível 🌟 : {player['level']} | Exp 📚 : {player['exp']}/{player['exp_max']} {player_xp_bar} 
 
@@ -128,9 +129,15 @@ def desc_magia():
 def desc_corpo_corpo():
     pass
 
+def desc_armas_i():
+    print('')
+    print(f"ADAGA > DANO: 7/11  |\nESPADA_CURTA > DANO: 15/20  |\nCAJADO > DANO: 15/23  |\nVARINHA > DANO: 10/20  |\nMACHADO > DANO: 25/35  ")
+
+
 def desc_armas():
     print('')
     print(f"{armas['adaga']['nome_colorido']} > DANO: {armas['adaga']['dano']} PREÇO: {armas['adaga']['preco']} |\n{armas['espada_curta']['nome_colorido']} > DANO: {armas['espada_curta']['dano']} PREÇO: {armas['espada_curta']['preco']} |\n{armas['cajado']['nome_colorido']} > DANO: {armas['cajado']['dano']} PREÇO: {armas['cajado']['preco']} |\n{armas['varinha']['nome_colorido']} > DANO: {armas['varinha']['dano']} PREÇO: {armas['varinha']['preco']} |\n{armas['machado']['nome_colorido']} > DANO: {armas['machado']['dano']} PREÇO: {armas['machado']['preco']} ")
+
 def desc_armaduras():
     print('')
     print(f"{equipamentos['capacete']['nome_colorido']} > DEFESA: {equipamentos['capacete']['def']} PREÇO: {equipamentos['capacete']['preco']} |\n{equipamentos['peitoral']['nome_colorido']} > DEFESA: {equipamentos['peitoral']['def']} PREÇO: {equipamentos['peitoral']['preco']} |\n{equipamentos['calca']['nome_colorido']} > DEFESA: {equipamentos['calca']['def']} PREÇO: {equipamentos['calca']['preco']} |\n{equipamentos['bota']['nome_colorido']} > DEFESA: {equipamentos['bota']['def']} PREÇO: {equipamentos['bota']['preco']} |")

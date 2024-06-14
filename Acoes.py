@@ -14,40 +14,45 @@ from Loja import *
 
 
 def chance_drop_inimigos():
-    gerar_raridades_itens(consumiveis,equipamentos,armas)
+    gerar_raridades_itens(equipamentos,armas)
     drop_c = randint(1,5)
     if drop_c == 1:
-        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao \n> '))
         if drop == 1:
             equip_cap()
+            return
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 2:
-        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        drop = int(input(f'Inimigo dropou um peitoral. deseja pegar ? \n1>Sim \n2>Nao \n> '))
         if drop == 1:
             equip_pet()
+            return
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 3:
-        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        drop = int(input(f'Inimigo dropou uma calça. deseja pegar ? \n1>Sim \n2>Nao \n> '))
         if drop == 1:
             equip_cal()
+            return
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 4:
-        drop = int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > '))
+        drop = int(input(f'Inimigo dropou uma bota. deseja pegar ? \n1>Sim \n2>Nao \n> '))
         if drop == 1:
             equip_bot()
+            return
         else:
             print('Você ignorou o item.')
             return
     if drop_c == 5:
-        drop = int(int(input(f'Inimigo dropou um capacete. deseja pegar ? \n1>Sim \n2>Nao > ')))
+        drop = int(input(f"Inimigo dropou uma {armas['espada_curta']['nome_colorido']}. com raridade {armas['espada_curta']['raridade']} deseja pegar ? \n1>Sim \n2>Nao \n> "))
         if drop == 1:
             equip_espada_curta()
+            return
         else:
             print('Você ignorou o item.')
             return
@@ -122,6 +127,7 @@ def golpe_a_i(i_dano,i_dano2,i_nome):
                 sleep(2)      
                 if player['defesa'] <=0 :
                     player['defesa'] = 0
+                    return
             if player['defesa'] <= 0 :
                     player['vida'] -= i_dano
                     print(f"{i_nome} ESTÁ AVANÇANDO !")
@@ -147,6 +153,7 @@ def golpe_a_i(i_dano,i_dano2,i_nome):
                 sleep(2)
                 if player['defesa'] <=0 :
                     player['defesa'] = 0
+                    return
                     
             if player['defesa'] <= 0 :
                     player['vida'] -= i_dano2
@@ -174,7 +181,8 @@ def inventario():
             #Executando a função correspondente ao item
         if item_desejado in funcoes_consumiveis:
             funcoes_consumiveis[item_desejado]()
-            x = int(input("Deseja ir pro proximo inimigo? // seguir lore "))
+            return
+            x = int(input("seguir lore "))
             if x == 1:
                 reset_inimigos()
                 novo_i_aleatorio()
