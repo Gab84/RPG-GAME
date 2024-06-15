@@ -83,6 +83,11 @@ def chances():
   chance = randint(0,6)
   return chance
 
+def chances_i():
+  global chance_i
+  chance_i = randint(0,6)
+  return chance
+
 def p_curar():
     player['vida'] += player['cura']
     if player['vida'] > player['vida_max']:
@@ -110,59 +115,69 @@ def upar_p(i_xp,i_vida):
 def up():
     upar_p()
 
-def golpe_a_i(i_dano,i_dano2,i_nome):
+def golpe_a_i(i_dano,i_dano2,i_nome,p):
     chances()
     if chance >= 3:
-            print(f"{i_nome} USOU ATAQUE BASICO !")
-            sleep(1)
-            if player['defesa'] > 0:
-                player['defesa'] -= i_dano
-                print(f"{i_nome} ESTÁ AVANÇANDO !")
+            chances_i()
+            if chance_i >=3 :
+                print(f"{i_nome} Avançou no {p} ! ")
+                print(f"{i_nome} USOU ATAQUE BASICO !")
                 sleep(1)
-                print(f"{i_nome} ACERTOU O GOLPE ! !")
-                sleep(1)
-                print('====== RELATORIO =====')
-                print(f"{i_nome} CAUSOU {i_dano} DE DANO NA DEFESA DO PLAYER ")
-                print('====== RELATORIO =====')
-                sleep(2)      
-                if player['defesa'] <=0 :
-                    player['defesa'] = 0
-                    return
-            if player['defesa'] <= 0 :
-                    player['vida'] -= i_dano
+                if player['defesa'] > 0:
+                    player['defesa'] -= i_dano
                     print(f"{i_nome} ESTÁ AVANÇANDO !")
                     sleep(1)
                     print(f"{i_nome} ACERTOU O GOLPE ! !")
                     sleep(1)
                     print('====== RELATORIO =====')
-                    print(f"{i_nome} CAUSOU {i_dano} DE DANO")
+                    print(f"{i_nome} CAUSOU {i_dano} DE DANO NA DEFESA DO PLAYER ")
                     print('====== RELATORIO =====')
                     sleep(2)      
+                    if player['defesa'] <=0 :
+                        player['defesa'] = 0
+                        return
+                elif player['defesa'] <= 0 :
+                        player['vida'] -= i_dano
+                        print(f"{i_nome} ESTÁ AVANÇANDO !")
+                        sleep(1)
+                        print(f"{i_nome} ACERTOU O GOLPE ! !")
+                        sleep(1)
+                        print('====== RELATORIO =====')
+                        print(f"{i_nome} CAUSOU {i_dano} DE DANO")
+                        print('====== RELATORIO =====')
+                        sleep(2)   
+            elif chance_i <=2 :
+                 print('Inimigo errou o golpe')     
+
     elif chance <= 2:
-            print(f"{i_nome} USOU ATAQUE FORTE !")
-            sleep(1)
-            print(f"{i_nome} ESTÁ AVANÇANDO !")
-            sleep(1)
-            if player['defesa'] > 0:
-                player['defesa'] -= i_dano2
-                print(f"{i_nome} ACERTOU O GOLPE ! !")
+            chances_i()
+            if chance_i >= 3:
+                print(f"{i_nome} Avançou no {p} ! ")
+                print(f"{i_nome} USOU ATAQUE FORTE !")
                 sleep(1)
-                print('====== RELATORIO =====')
-                print(f"{i_nome} CAUSOU {i_dano2} DE DANO NA DEFESA DO PLAYER")
-                print('====== RELATORIO =====')
-                sleep(2)
-                if player['defesa'] <=0 :
-                    player['defesa'] = 0
-                    return
-                    
-            if player['defesa'] <= 0 :
-                    player['vida'] -= i_dano2
+                print(f"{i_nome} ESTÁ AVANÇANDO !")
+                sleep(1)
+                if player['defesa'] > 0:
+                    player['defesa'] -= i_dano2
                     print(f"{i_nome} ACERTOU O GOLPE ! !")
                     sleep(1)
                     print('====== RELATORIO =====')
-                    print(f"{i_nome} CAUSOU {i_dano2} DE DANO")
+                    print(f"{i_nome} CAUSOU {i_dano2} DE DANO NA DEFESA DO PLAYER")
                     print('====== RELATORIO =====')
                     sleep(2)
+                    if player['defesa'] <=0 :
+                        player['defesa'] = 0
+                        return
+                elif player['defesa'] <= 0 :
+                        player['vida'] -= i_dano2
+                        print(f"{i_nome} ACERTOU O GOLPE ! !")
+                        sleep(1)
+                        print('====== RELATORIO =====')
+                        print(f"{i_nome} CAUSOU {i_dano2} DE DANO")
+                        print('====== RELATORIO =====')
+                        sleep(2)
+            elif chance_i <= 2:
+                 print('Inimigo errou !')
 
 
 def inventario():
@@ -227,6 +242,114 @@ def inventario_m():
 
 
 
+def atq_player(p,p_atq_1,p_dano,inimigo,i_vida,p_atq_2,p_dano2,p_cura): 
+    atq = int(input(f"DESEJA FAZER OQUE? \nAÇÕOES -->  {player['golpes'][0]}🗡️  : DANO : {player['dano'][0]} ❤️  | {player['golpes'][1]}🗡️  : DANO : {player['dano'][1]} ❤️  | {player['golpes'][2]} 🩹 : CURA: {player['cura']} ❤️  | {player['golpes'][3]}🎒 : ABRIR INVENTARIO \n> "))
+    
+    #GOLPE FRACO
+
+    if atq == 1:
+        classe_tipo = determinar_classe_tipo(player['classe'])
+        chances()
+        if chance <= 4:
+            if classe_tipo == 'Magias':
+                if player['mana'] <= 9:
+                    print('Você não tem mana o suficiente, tente abrir o inventario e usar algum item.')
+                    return
+                player['mana'] -= 10
+                if player['mana'] < 0 :
+                    player['mana'] = 0
+            sleep(1)
+            print(f"{p} Usou {p_atq_1} !\n ")
+            sleep(1)
+            print('Avançando no adversario')
+            sleep(1)
+            print('\nVocê acertou ! ')
+            i_vida -= p_dano
+            sleep(1)
+            print('====== Relatorio Combate =====')
+            print(f"\nvocê causou {p_dano} de dano no inimigo {inimigo} e agora ele está com {i_vida} de pontos de vida\n")
+            sleep(2)
+            print('===============================')
+        if chance >= 5:
+            if classe_tipo == 'Magias':
+                if player['mana'] <= 14:
+                    print('Você não tem mana o suficiente, tente abrir o inventario e usar algum item.')
+                    return
+                player['mana'] -= 15
+                if player['mana'] < 0 :
+                    player['mana'] = 0
+            sleep(1)
+            print(f"{p} Usou {p_atq_1} !\n ")
+            sleep(1)
+            print('Avançando no adversario')
+            sleep(1)
+            print('\nVocê errou ! ')
+            sleep(1)
+            print('====== Relatorio Combate =====')
+            sleep(1)
+            print('Você não causou dano!')
+            sleep(2)
+            print('===============================')
+    #golpe forte
+    elif atq == 2:
+        chances()
+        #print(f'essa foi a chance de golpe ======== {chance} ==============')
+        if chance <= 3:
+            if classe_tipo == 'Magias':
+                if player['mana'] <= 14:
+                    print('Você não tem mana o suficiente, tente abrir o inventario e usar algum item.')
+                    return
+                player['mana'] =- 15
+                if player['mana'] < 0 :
+                    player['mana'] = 0
+
+            print(f"{p} Usou {p_atq_2} ! ")
+            i_vida -= p_dano2
+            sleep(1)
+            print('Avançando no adversario')
+            sleep(1)
+            print('\nVocê acertou ! ')
+            sleep(1)
+            print('====== Relatorio Combate =====')
+            sleep(1)
+            print(f"você causou {p_dano2} de dano no inimigo {inimigo} e agora ele está com {i_vida} de pontos de vida")
+            sleep(2)
+            print('===============================')
+
+        if chance >= 4:
+            if classe_tipo == 'Magias':
+                if player['mana'] <= 14:
+                    print('Você não tem mana o suficiente, tente abrir o inventario e usar algum item.')
+                    return
+                player['mana'] =- 15
+                if player['mana'] < 0 :
+                    player['mana'] = 0
+            print(f"{p} Usou {p_atq_2} ! ")
+            sleep(1)
+            print('Avançando no adversario')
+            sleep(1)
+            print('Você errou ! ')
+            sleep(1)
+            print('====== Relatorio Combate =====')
+            sleep(1)
+            print('Você não causou dano!')
+            sleep(2)
+            print('===============================')
+    #Cura
+    elif atq == 3:
+        #print(p_vida)
+        if player['mana'] > 5:
+            p_curar()
+            player['mana'] -= 5
+            print(f"{p} curou {p_cura} essa é a nova vida do p {player['vida']} você gastou 25 de mana. ")
+        else:
+            print('Você não tem mana o suficiente para usar. Você passou a vez.')
+    
+    elif atq == 4:
+        inventario_m()       
+
+
+
 def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_dano2,p_cura,i_level,i_xp,p_atq_1,p_atq_2,): #p_xp,p_nv
     df_max = player['defesa']
     sleep(3)
@@ -235,109 +358,14 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
     txt_btl()
     if p_vida > 0:
         while p_vida >0:
-                
                 Hud_player()
                 if i_vida > 0:
                     display_npc_hp_bar(current_hp=i_vida,max_hp=i_vida_m,i_level=i_level,i_xp=i_xp,inimigo=inimigo,bar_length=10)
                     print('')
-                atq = int(input(f"DESEJA FAZER OQUE? \nAÇÕOES -->  {player['golpes'][0]}🗡️  : DANO : {player['dano'][0]} ❤️  | {player['golpes'][1]}🗡️  : DANO : {player['dano'][1]} ❤️  | {player['golpes'][2]} 🩹 : CURA: {player['cura']} ❤️  | {player['golpes'][3]}🎒 : ABRIR INVENTARIO \n> "))
-                clear_terminal()
-                classe_tipo = determinar_classe_tipo(player['classe'])
-                if classe_tipo == 'Magias':
-                    if player['mana'] >0:
-                        if atq == 1:
-                            player['mana'] -= 10
-                        if atq == 2:
-                            player['mana'] -= 15
-                    elif player['mana'] <=9:
-                        print('Você não tem mana o suficiente. Utilize algum item. ')
-                        inventario_m()
-                        
-                #golpe fraco
-                if atq == 1:
-                    chances()
-                    #print(f'essa foi a chance de golpe ======== {chance} ==============')
-                    if chance <= 4:
-                        sleep(1)
-                        print(f"{p} Usou {p_atq_1} !\n ")
-                        sleep(1)
-                        print('Avançando no adversario')
-                        sleep(1)
-                        print('\nVocê acertou ! ')
-                        i_vida -= p_dano
-                        sleep(1)
-                        print('====== Relatorio Combate =====')
-                        print(f"\nvocê causou {p_dano} de dano no inimigo {inimigo} e agora ele está com {i_vida} de pontos de vida\n")
-                        sleep(2)
-                        print('===============================')
-                    if chance >= 5:
-                        sleep(1)
-                        print(f"{p} Usou {p_atq_1} !\n ")
-                        sleep(1)
-                        print('Avançando no adversario')
-                        sleep(1)
-                        print('\nVocê errou ! ')
-                        sleep(1)
-                        print('====== Relatorio Combate =====')
-                        sleep(1)
-                        print('Você não causou dano!')
-                        sleep(2)
-                        print('===============================')
-                #golpe forte
-                elif atq == 2:
-                    chances()
-                    #print(f'essa foi a chance de golpe ======== {chance} ==============')
-                    if chance <= 3:
-                        print(f"{p} Usou {p_atq_2} ! ")
-                        i_vida -= p_dano2
-                        sleep(1)
-                        print('Avançando no adversario')
-                        sleep(1)
-                        print('\nVocê acertou ! ')
-                        sleep(1)
-                        print('====== Relatorio Combate =====')
-                        sleep(1)
-                        print(f"você causou {p_dano2} de dano no inimigo {inimigo} e agora ele está com {i_vida} de pontos de vida")
-                        sleep(2)
-                        print('===============================')
-
-                    if chance >= 4:
-                        print(f"{p} Usou {p_atq_2} ! ")
-                        sleep(1)
-                        print('Avançando no adversario')
-                        sleep(1)
-                        print('Você errou ! ')
-                        sleep(1)
-                        print('====== Relatorio Combate =====')
-                        sleep(1)
-                        print('Você não causou dano!')
-                        sleep(2)
-                        print('===============================')
-                #Cura
-                elif atq == 3:
-                    #print(p_vida)
-                    if player['mana'] > 0:
-                        p_curar()
-                        player['mana'] -= 25
-                        print(f"{p} curou {p_cura} essa é a nova vida do p {player['vida']} você gastou 25 de mana. ")
-                    else:
-                        print('Você não tem mana o suficiente para usar. Você passou a vez.')
-                
-                elif atq == 4:
-                    inventario_m()
-
-                    
+                    atq_player(p,p_atq_1,p_dano,inimigo,i_vida,p_atq_2,p_dano2,p_cura)                   
 
                 if i_vida > 0 :
-                        print(f"{inimigo} Avançou no {p} ! ")
-                        sleep(1)
-                        chances()
-                        if chance >= 3:
-                            sleep(1)
-                            golpe_a_i(i_dano,i_dano2,inimigo)
-                        if chance <= 2:
-                            sleep(1)
-                            print("O Inimigo errou o golpe!")
+                    golpe_a_i(i_dano,i_dano2,inimigo,p)
 
                 if player['vida'] <=0:
                     Hud_player()
