@@ -15,9 +15,10 @@ player = {
     'mana_max' : 100,
     'cura' : 7,
     'inventario' : ['suco_maça'],
-    'classe' : [],
+    'classe' : ["Rodrigo Faro"],
     'dinheiro': 50,
     'armaduras_equipadas': {},  # Armazena as armaduras equipadas por categoria
     'defesa' : 0,
+    'defesa_max' :0,
     'pontos' : 0
 }

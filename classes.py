@@ -333,6 +333,7 @@ def equip_armadura(p, armadura_nome):
     # Equipar a nova armadura
     p['armaduras_equipadas'][armadura_nome] = armadura
     p['defesa'] += armadura['def']
+    p['defesa_max'] += armadura['def']
     
     print(f"Você equipou uma armadura com raridade {armadura['raridade']}.")
     print(f"{armadura['nome_colorido']} está equipada, agora você está mais protegido.")

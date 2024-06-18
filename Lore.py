@@ -6,6 +6,7 @@ from savescore import *
 from Modo_infinito import evnt_aleatorio
 
 
+
 def part1():
     txtlore(f"Em uma caverna, {player['nome']}, acorda devido a forte agitação, do som de metal, e risadas direcionadadas a {player['nome']}, ao abrir os olhos, uma voz rouca te chama.", delay=0.005)
     sleep(1)
