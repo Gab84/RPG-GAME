@@ -14,7 +14,7 @@ player = {
     'mana_inicial': 0,
     'mana_max' : 100,
     'cura' : 7,
-    'inventario' : ['suco de maça🧃'],
+    'inventario' : ['suco_maça'],
     'classe' : [],
     'dinheiro': 50,
     'armaduras_equipadas': {},  # Armazena as armaduras equipadas por categoria

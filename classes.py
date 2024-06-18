@@ -153,7 +153,7 @@ Corpo_a_corpo = {
 
 multiplicadores_dano = {
     'Furtivo': {
-        'adaga': 2,
+        'adaga': 1515151,
         'espada_curta': 0.9,
         'cajado': 0.6,
         'varinha': 0.8,
@@ -398,18 +398,23 @@ def escolha_arma():
     x = int(input('1) ADAGA | 2) ESPADA_CURTA | 3) CAJADO | 4) VARINHA | 5) MACHADO |'))
     if x == 1:
         equip_adaga_i()
+        
         Hud_player()
     elif x ==2:
         equip_espada_curta_i()
+        
         Hud_player()
     elif x == 3:
         equip_cajado_i()
+        
         Hud_player()
     elif x == 4:
         equip_varinha_i()
+        
         Hud_player()
     elif x == 5:
         equip_machado_i()
+        
         Hud_player()
     else:
         print('NÃO TEM MAIS NENHUMA POR AQUI, PEGA QUALQUER UMA QUE VOCÊ ESTÁ VENDO.')
