@@ -34,7 +34,7 @@ def aplicar_raridade(item, raridade):
         item['pontos'] = int(valores_iniciais['pontos'] * multiplicador)
     
     item['raridade'] = raridade
-    item['nome_colorido'] = f"{cor}{item['nome']}[/]"  # Atualiza o nome com a cor
+    item['nome_colorido'] = f"{cor}{item['nome']}[/{cor}]"  # Atualiza o nome com a cor
 
 # Função para gerar uma raridade aleatória
 def gerar_raridade():
@@ -64,5 +64,5 @@ def gerar_raridades_itens(armas, equipamentos):
 # Função para exibir itens com cor
 def exibir_item_com_cor(item):
     cor = raridades[item['raridade']]['cor']
-    nome_colorido = f"{cor}{item['nome']}[/]"
+    nome_colorido = f"{cor}{item['nome']}[/{cor}]"
     print(f"{nome_colorido}: {item}")
