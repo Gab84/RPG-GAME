@@ -3,6 +3,7 @@ from Inimigo import *
 import time
 import sys
 from Itens import *
+from rich import *
 
 def calcular_defesa_total(p):
     defesa_total = 0
@@ -35,7 +36,7 @@ def display_player_hp_bar(current_hp, max_hp, bar_length=10):
     white_squares = int(ratio * bar_length)
     black_squares = bar_length - white_squares
 
-    player_hp_bar = "❤️ " * white_squares + "🤍" * black_squares
+    player_hp_bar = "[white]:heartpulse:[/white]" * white_squares + " :white_medium_square:" * black_squares
 
     #print(f"\033[36m{player['nome']}\033[0m {player_hp_bar}  ")
     
@@ -48,7 +49,7 @@ def xp_bar(xp_atual,xp_max,bar_lenght=10):
     white_squares = int(ratio * bar_lenght)
     black_squares = bar_lenght - white_squares
 
-    player_xp_bar = "🔷 " * white_squares + "⚪" * black_squares
+    player_xp_bar = ":large_orange_diamond:" * white_squares + " :white_medium_square:" * black_squares
 
     #print(f"\033[36m{player['nome']}\033[0m {player_xp_bar}  ")
     
@@ -61,7 +62,7 @@ def mana_bar(man_atual,mana_max,bar_lenght=10):
     white_squares = int(ratio * bar_lenght)
     black_squares = bar_lenght - white_squares
 
-    player_mana_bar = "🟣 " * white_squares + "⚪" * black_squares
+    player_mana_bar = ':large_blue_circle:' * white_squares + " :white_medium_square:" * black_squares
 
     #print(f"\033[36m{player['nome']}\033[0m {player_xp_bar}  ")
     
