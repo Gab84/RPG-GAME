@@ -61,32 +61,35 @@ def loja(npc):
     for i,c in enumerate(npc['itens']):
         print(f'{i+1} - {c}')
     desc_itens()
-    x = int(input(f"\n\033[32mVAI LEVAR OQUE HOJE ? ->  \033[0m"))-1
-    if 0 <= x < len(npc['itens']): # Verificando se o índice está dentro do intervalo válido
-        item_desejado = npc['itens'][x] # Acessando o item pelo índice fornecido
-        if player['dinheiro'] >= consumiveis[item_desejado]['preco'] :
-            sleep(1)
-            print('CONFERINDO O TROCO 💸')
-            sleep(1)
-            print("VOCÊ COMPROU :", item_desejado)
-            sleep(2)
-            # Removendo o item da lista
-            npc['itens'].pop(x)
-           
-            player['pontos'] += consumiveis[item_desejado]['pontos']
+    while True:
+        x = int(input(f"\n\033[32mVAI LEVAR OQUE HOJE ? aperte (7) para sair ->  \033[0m"))-1
+        if 0 <= x < len(npc['itens']): # Verificando se o índice está dentro do intervalo válido
+            item_desejado = npc['itens'][x] # Acessando o item pelo índice fornecido
+            if player['dinheiro'] >= consumiveis[item_desejado]['preco'] :
+                sleep(1)
+                print('CONFERINDO O TROCO 💸')
+                sleep(1)
+                print("VOCÊ COMPROU :", item_desejado)
+                sleep(2)
+                # Removendo o item da lista
+                npc['itens'].pop(x)
             
-            #add ao inv player
-            player['inventario'].append(item_desejado)
-            player['dinheiro'] -= consumiveis[item_desejado]['preco']
-            player['pontos'] += consumiveis[item_desejado]['pontos']
-            print(f"ITEM FOI ADICIONADO AO INVENTARIO DO PLAYER, BOA SORTE NA SUA VIAGEM. ")
-            sleep(3)
-            Hud_player()      
+                player['pontos'] += consumiveis[item_desejado]['pontos']
+                
+                #add ao inv player
+                player['inventario'].append(item_desejado)
+                player['dinheiro'] -= consumiveis[item_desejado]['preco']
+                player['pontos'] += consumiveis[item_desejado]['pontos']
+                print(f"ITEM FOI ADICIONADO AO INVENTARIO DO PLAYER, BOA SORTE NA SUA VIAGEM. ")
+                sleep(3)
+                Hud_player()
+                return     
+            else:
+                print('RAPAZ, TU TA SEM GRANA, ESCOLHE OUTRA COISA...')
+                
         else:
-            print('RAPAZ, TU TA SEM GRANA, ESCOLHE OUTRA COISA...')
-            loja(npc=loja_Alexandre)
-    else:
-        print("JÁ QUE VOCÊ NÃO QUER NADA, ADEUS. ")
+            print("JÁ QUE VOCÊ NÃO QUER NADA, ADEUS. ")
+            return
 
 
 def loja_a(npc):
@@ -104,40 +107,42 @@ def loja_a(npc):
     for i,c in enumerate(npc['itens']):
         print(f'{i+1} - {c["nome_formatado"]}')
     desc_armas()
-    x = int(input(f"\n\033[32mVAI LEVAR OQUE HOJE ? ->  \033[0m"))-1
-    if 0 <= x < len(npc['itens']): # Verificando se o índice está dentro do intervalo válido
-        item_desejado = npc['itens'][x] # Acessando o item pelo índice fornecido
-        item_nome = item_desejado['nome']
-        if player['dinheiro'] >= armas[item_nome]['preco'] :
-            sleep(1)
-            print('CONFERINDO O TROCO 💸')
-            sleep(1)
-            print("VOCÊ COMPROU :", item_desejado['nome_formatado'])
-            sleep(2)
-            # Removendo o item da lista
-            npc['itens'].pop(x)
-            player['pontos'] += armas[item_nome]['pontos']
-            #add ao inv player
-            if armas[item_nome]['nome'] == 'adaga':
-                equip_adaga()
-            elif armas[item_nome]['nome'] == 'espada_curta':
-                equip_espada_curta()
-            elif armas[item_nome]['nome'] == 'cajado':
-                equip_cajado()
-            elif armas[item_nome]['nome'] == 'varinha':
-                equip_varinha()
-            elif armas[item_nome]['nome'] == 'machado':
-                equip_machado()
-            print(f"{armas[item_nome]['nome']} FOI ADICIONADA A MÃO DO PLAYER, PARABÉNS PELA AQUISIÇÃO. BOA SORTE NA VIAGEM. ")
-            player['dinheiro'] -= armas[item_nome]['preco']
-            sleep(2)
-            Hud_player()
+    while True:
+        x = int(input(f"\n\033[32mVAI LEVAR OQUE HOJE ? aperte (7) para sair ->  \033[0m"))-1
+        if 0 <= x < len(npc['itens']): # Verificando se o índice está dentro do intervalo válido
+            item_desejado = npc['itens'][x] # Acessando o item pelo índice fornecido
+            item_nome = item_desejado['nome']
+            if player['dinheiro'] >= armas[item_nome]['preco'] :
+                sleep(1)
+                print('CONFERINDO O TROCO 💸')
+                sleep(1)
+                print("VOCÊ COMPROU :", item_desejado['nome_formatado'])
+                sleep(2)
+                # Removendo o item da lista
+                npc['itens'].pop(x)
+                player['pontos'] += armas[item_nome]['pontos']
+                #add ao inv player
+                if armas[item_nome]['nome'] == 'adaga':
+                    equip_adaga()
+                elif armas[item_nome]['nome'] == 'espada_curta':
+                    equip_espada_curta()
+                elif armas[item_nome]['nome'] == 'cajado':
+                    equip_cajado()
+                elif armas[item_nome]['nome'] == 'varinha':
+                    equip_varinha()
+                elif armas[item_nome]['nome'] == 'machado':
+                    equip_machado()
+                print(f"{armas[item_nome]['nome']} FOI ADICIONADA A MÃO DO PLAYER, PARABÉNS PELA AQUISIÇÃO. BOA SORTE NA VIAGEM. ")
+                player['dinheiro'] -= armas[item_nome]['preco']
+                sleep(2)
+                Hud_player()
+                return
+            else:
+                print('RAPAZ, TU TA SEM GRANA, ESCOLHE OUTRA COISA...')
+                loja_a(npc=loja_Bathemofh)
         else:
-            print('RAPAZ, TU TA SEM GRANA, ESCOLHE OUTRA COISA...')
-            loja_a(npc=loja_Bathemofh)
-    else:
-        print("JÁ QUE VOCÊ NÃO QUER NADA, ADEUS. ")
-
+            print("JÁ QUE VOCÊ NÃO QUER NADA, ADEUS. ")
+            return
 
 def loja_e(npc):
     gerar_raridades_itens(armas, equipamentos)
@@ -154,37 +159,40 @@ def loja_e(npc):
     for i,c in enumerate(npc['itens']):
         print(f'{i+1} - {c["nome_formatado"]}')
     desc_armaduras()
-    x = int(input(f"\n\033[32mVAI LEVAR OQUE HOJE ? ->  \033[0m"))-1
-    if 0 <= x < len(npc['itens']): # Verificando se o índice está dentro do intervalo válido
-        item_desejado = npc['itens'][x] # Acessando o item pelo índice fornecido
-        item_nome = item_desejado['nome']
-        if player['dinheiro'] >= equipamentos[item_nome]['preco'] :
-            sleep(1)
-            print('CONFERINDO O TROCO 💸')
-            sleep(1)
-            print("VOCÊ COMPROU :", item_desejado['nome_formatado'])
-            sleep(2)
-            # Removendo o item da lista
-            npc['itens'].pop(x)
-            player['pontos'] += equipamentos[item_nome]['pontos']
-            #add ao inv player
-            if equipamentos[item_nome]['nome'] == 'capacete':
-                equip_cap()
-            elif equipamentos[item_nome]['nome'] == 'peitoral':
-                equip_pet()
-            elif equipamentos[item_nome]['nome'] == 'calca':
-                equip_cal()
-            elif equipamentos[item_nome]['nome'] == 'bota':
-                equip_bot()
-            print(f"{equipamentos[item_nome]['nome']} FOI EQUIPADA NO PLAYER, PARABÉNS PELA AQUISIÇÃO. BOA SORTE NA VIAGEM. ")
-            player['dinheiro'] -= equipamentos[item_nome]['preco']
-            sleep(2)
-            Hud_player()
+    while True:
+        x = int(input(f"\n\033[32mVAI LEVAR OQUE HOJE ? aperte (7) para sair ->  \033[0m"))-1
+        if 0 <= x < len(npc['itens']): # Verificando se o índice está dentro do intervalo válido
+            item_desejado = npc['itens'][x] # Acessando o item pelo índice fornecido
+            item_nome = item_desejado['nome']
+            if player['dinheiro'] >= equipamentos[item_nome]['preco'] :
+                sleep(1)
+                print('CONFERINDO O TROCO 💸')
+                sleep(1)
+                print("VOCÊ COMPROU :", item_desejado['nome_formatado'])
+                sleep(2)
+                # Removendo o item da lista
+                npc['itens'].pop(x)
+                player['pontos'] += equipamentos[item_nome]['pontos']
+                #add ao inv player
+                if equipamentos[item_nome]['nome'] == 'capacete':
+                    equip_cap()
+                elif equipamentos[item_nome]['nome'] == 'peitoral':
+                    equip_pet()
+                elif equipamentos[item_nome]['nome'] == 'calca':
+                    equip_cal()
+                elif equipamentos[item_nome]['nome'] == 'bota':
+                    equip_bot()
+                print(f"{equipamentos[item_nome]['nome']} FOI EQUIPADA NO PLAYER, PARABÉNS PELA AQUISIÇÃO. BOA SORTE NA VIAGEM. ")
+                player['dinheiro'] -= equipamentos[item_nome]['preco']
+                sleep(2)
+                Hud_player()
+                return
+            else:
+                print('RAPAZ, TU TA SEM GRANA, ESCOLHE OUTRA COISA...')
+                
         else:
-            print('RAPAZ, TU TA SEM GRANA, ESCOLHE OUTRA COISA...')
-            loja_e(npc=loja_Bartolomeu)
-    else:
-        print("JÁ QUE VOCÊ NÃO QUER NADA, ADEUS. ")
+            print("JÁ QUE VOCÊ NÃO QUER NADA, ADEUS. ")
+            return
 
 
 
@@ -195,4 +203,7 @@ def loja_e(npc):
 #gerar_raridades_itens(armas, equipamentos)
 #equip_bot()
 #print(player)
+#equip_adaga_i()
+#loja_e(npc=loja_Bartolomeu)
+#loja_e(npc=loja_Bartolomeu)
 #loja_e(npc=loja_Bartolomeu)
