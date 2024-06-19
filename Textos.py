@@ -115,10 +115,13 @@ def Hud_player():
     tabela.add_column() 
     tabela.add_row(f"{'[b]PAINEL PLAYER[/b]':^106}\n")
     tabela.add_row(f"[b]NM[/b] 👤: {player['nome'].upper()[0:20]:<20}  [b]LV[/b][yellow]:star:{player['level']:<4}[/yellow]     [b]CLASSE[/b]: {nome_classe_limpa:<12}   [b]ARMA[/]: {player['armas']['nome_colorido']:<15}[white b]CASH[/]: [i]💲{dinheiro_limpo}[/]")
-    tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]     [b]EQ[/]: {armadura}                                    [b]DEF[/]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+    tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]     [b]EQ[/b]: {armadura}                                    [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
     tabela.add_row(f"[b]MP[/] {player_mana_bar:<10}     [cyan i]{player['mana']:>3} / {player['mana_max']:<3}[/]                  ")
     tabela.add_row(f"[b]XP[/] {player_xp_bar:<10}     [#ffA500 i]{player['exp']:>3} / {player['exp_max']:<3}[/]     📦 [b]INVENTARIO[/b]: {itens_inventario[0:40]}...")
     tabela.add_section()
+
+    # linha equipamento e defesa antiga
+    '''tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]     [b]EQ[/]: {armadura}                                    [b]DEF[/]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")'''
 
     tabela_centralizada = Align.center(tabela)
 
