@@ -1,4 +1,4 @@
-from savescore import *
+#from savescore import *
 import sys
 import platform
 import os
