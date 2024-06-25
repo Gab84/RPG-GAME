@@ -372,7 +372,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     print(f"{p} NÃO TANKOU O BOSTIL E FOI DE F ")
                     sleep(2)
                     print('FIM DE JOGO, TENTE NOVAMENTE.')
-                    save_score()
+                    #save_score()
                     sleep(2)
                     parar()
 
@@ -428,7 +428,7 @@ def luta_infinita_mode(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_d
                     print(f"{p} NÃO TANKOU O BOSTIL E FOI DE F ")
                     sleep(2)
                     print('FIM DE JOGO, TENTE NOVAMENTE.')
-                    save_score()
+                    #save_score()
                     sleep(2)
                     parar()
 
