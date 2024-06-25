@@ -2,7 +2,7 @@ from Acoes import *
 from Player import player
 from time import sleep
 from Textos import txtlore
-from savescore import *
+#from savescore import *
 from Modo_infinito import evnt_aleatorio
 
 
@@ -177,4 +177,4 @@ def p():
     part8()
     
     
-PLAY()
+p()
