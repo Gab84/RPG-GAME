@@ -10,6 +10,7 @@ from classes import *
 from Itens import *
 from status import distribuir_pt
 from Loja import *
+from rich import *
 
 
 
