@@ -7,7 +7,6 @@ import os
 import platform
 from Raridadesf import *
 import copy
-from rich import *
 
 def clear_terminal():
     system_name = platform.system()
@@ -179,12 +178,11 @@ multiplicadores_dano = {
 
 
 def escolha_classe():
-    txtlore("AGORA ESCOLHA SUA CLASSE ", delay=0.05)
-    print(f"ESCOLHA SUA CATEGORIA, {player['nome']}.")
+    print(f"ESCOLHA SUA CATEGORIA, {player['nome']}.\n")
     txtlore("CATEGORIAS DISPONÍVEIS", delay=0.05)
     txtlore("1 > FURTIVO \n2 > MAGIAS \n3 > CORPO A CORPO", delay=0.05)
     sleep(1)
-    categoria = input('QUAL CAMINHO DESEJA SEGUIR > ')
+    categoria = input('QUAL CAMINHO DESEJA SEGUIR \n> ')
     clear_terminal()
     
     if categoria == '1':
@@ -204,7 +202,9 @@ def escolha_classe():
         clear_terminal()
         sleep(2)
         escolha_classe()
-    txtlore("AGORA ESCOLHA SUA CLASSE ", delay=0.05)
+    
+    txtlore("AGORA ESCOLHA SUA VOCAÇÃO ", delay=0.05)
+    print('')
     txtlore(f"CLASSES DISPONÍVEIS > {categorias['classe']}  ", delay=0.05)
     x = input('QUAL VOCAÇÃO DESEJA SEGUIR ? > ')
     
@@ -216,7 +216,9 @@ def escolha_classe():
             break
     
     if classe_selecionada:
+        sleep(1)
         print('VOCÊ ESTÁ TREINANDO ! 💪 ')
+        print('')
         sleep(3)
         print(f'VOCÊ ESTÁ APTO PARA SER UM {classe_selecionada[4:]}')
         # Atualizar o player com os valores da classe selecionada
@@ -396,8 +398,9 @@ def equip_bot():
 
 
 def escolha_arma():
+    clear_terminal()
     print('')
-    print("ESCOLHE UMA ARMA PRA VOCÊ NÃO SAIR DE MÃOS VAZIAS ")
+    print("PEGUE SUA ARMA. ")
     print('')
     desc_armas_i()
     print('')

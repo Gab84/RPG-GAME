@@ -1,3 +1,7 @@
+import sys
+import platform
+import os
+
 player = {
     'nome' : input('Digite o Nome do Heroi ! > '),
     'level' : 1,
@@ -14,11 +18,21 @@ player = {
     'mana_inicial': 0,
     'mana_max' : 100,
     'cura' : 7,
-    'inventario' : ['apenas um item aleatório'],
+    'artefatos': [],
+    'inventario' : ['suco_maça'],
     'classe' : ["Rodrigo Faro"],
-    'dinheiro': 50000,
+    'dinheiro': 50,
     'armaduras_equipadas': {},  # Armazena as armaduras equipadas por categoria
     'defesa' : 0,
     'defesa_max' :0,
     'pontos' : 0
 }
+
+def clear_terminal():
+    system_name = platform.system()
+    if system_name == "Windows":
+        os.system('cls')
+    else:
+        os.system('clear')
+
+clear_terminal()

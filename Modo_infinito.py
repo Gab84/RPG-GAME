@@ -7,7 +7,6 @@ from Itens import *
 from status import distribuir_pt
 from Loja import *
 from savescore import *
-from rich import *
 
 def chance_drop_inimigos():
     gerar_raridades_itens(equipamentos,armas)

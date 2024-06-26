@@ -2,7 +2,6 @@ from Itens import *
 from Textos import Hud_player, desc_itens,txt_lj_i,txt_lj_a,txt_lj_ar,desc_armaduras,desc_armas
 from classes import*
 from time import sleep
-from rich import *
 
 l_itens_alexandre = ['suco_maça', 'cafezin',]
 l_itens_bathemofh = []
@@ -53,9 +52,9 @@ def loja(npc):
     txt_lj_i()
     print('================================================================')
     sleep(2)
-    print(f"VOCÊ ENCONTROU A LOJA DO  >> [green]{npc['nome']} <<[/green]")
+    print(f"VOCÊ ENCONTROU A LOJA DO  >> \033[32m{npc['nome']} <<\033[0m ")
     print('')
-    print("[red]VOCÊ SÓ PODE COMPRAR UM ITEM POR ENCONTRO, ESCOLHA COM SABEDORIA.[/red]")
+    print("\033[31mVOCÊ SÓ PODE COMPRAR UM ITEM POR ENCONTRO, ESCOLHA COM SABEDORIA.\033[0m")
     print('')
     print(f"Sua bagagem é >> INVENTARIO 🎒 : {player['inventario']} | Dinheiro 💰 : {player['dinheiro']}")
     print(f'\nItens da loja são: ')
@@ -63,7 +62,7 @@ def loja(npc):
         print(f'{i+1} - {c}')
     desc_itens()
     while True:
-        x = int(input(f"\n[green]VAI LEVAR OQUE HOJE ? aperte (7) para sair ->  [/green]"))-1
+        x = int(input(f"\n\033[32mVAI LEVAR OQUE HOJE ? aperte (7) para sair ->  \033[0m"))-1
         if 0 <= x < len(npc['itens']): # Verificando se o índice está dentro do intervalo válido
             item_desejado = npc['itens'][x] # Acessando o item pelo índice fornecido
             if player['dinheiro'] >= consumiveis[item_desejado]['preco'] :

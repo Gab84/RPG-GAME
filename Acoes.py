@@ -1,4 +1,4 @@
-#from savescore import *
+from savescore import *
 import sys
 import platform
 import os
@@ -10,7 +10,6 @@ from classes import *
 from Itens import *
 from status import distribuir_pt
 from Loja import *
-from rich import *
 
 
 
@@ -373,7 +372,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     print(f"{p} NÃO TANKOU O BOSTIL E FOI DE F ")
                     sleep(2)
                     print('FIM DE JOGO, TENTE NOVAMENTE.')
-                    #save_score()
+                    save_score()
                     sleep(2)
                     parar()
 
@@ -396,7 +395,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
                     perg = int(input("1 > seguir lore // 2 > usar item //  "))
                     if  perg == 1:  #// faz ação desejada
                         reset_inimigos()
-                        print('Chamar função da proxima parte da historia') #
+                        #print('Chamar função da proxima parte da historia') #
                         return
                     if perg == 2:
                         inventario()
@@ -429,7 +428,7 @@ def luta_infinita_mode(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_d
                     print(f"{p} NÃO TANKOU O BOSTIL E FOI DE F ")
                     sleep(2)
                     print('FIM DE JOGO, TENTE NOVAMENTE.')
-                    #save_score()
+                    save_score()
                     sleep(2)
                     parar()
 

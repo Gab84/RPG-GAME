@@ -1,6 +1,5 @@
 from random import randint
 from Player import *
-from rich import *
 
 def lx():
   global level

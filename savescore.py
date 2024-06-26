@@ -1,6 +1,16 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 from Player import player
+import platform
+import os
+
+
+def clear_terminal():
+    system_name = platform.system()
+    if system_name == "Windows":
+        os.system('cls')
+    else:
+        os.system('clear')
 
 # Inicialização do Firebase
 cred = credentials.Certificate('firebase_config.json')  # Substitua pelo caminho do seu arquivo JSON
@@ -14,20 +24,23 @@ def get_ranking():
     return ranking_list
 
 def save_score():
+    x = input('Digite a forma que você gostaria de aparecer no Rank \n> ')
     rankings_ref = db.collection('rankings')
     rankings_ref.add({
-        'player_name': player['nome'],
+        'player_name': x,
         'score': player['pontos']
     })
 
 def print_ranking():
     ranking_list = get_ranking()
     medals = ['🥇', '🥈', '🥉']
-    print("Ranking:")
+    clear_terminal()
+    print("Aqui estão nossos queridos jogadores \n\n")
     for index, (player_name, score) in enumerate(ranking_list, start=1):
         if index <= 3:
             print(f"{medals[index-1]} {index}. {player_name} - {score} pontos")
         else:
             print(f"{index}. {player_name} - {score} pontos")
+    print('----------------------------------------------------------------')
 
 
