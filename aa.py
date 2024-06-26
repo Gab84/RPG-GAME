@@ -2,6 +2,7 @@ import sys
 import time
 import threading
 import keyboard
+from rich import *
 
 def txtlore(text, delay=0.1):
     def print_text():

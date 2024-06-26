@@ -7,6 +7,7 @@ import os
 import platform
 from Raridadesf import *
 import copy
+from rich import *
 
 def clear_terminal():
     system_name = platform.system()
