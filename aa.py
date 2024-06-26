@@ -19,6 +19,6 @@ def txtlore(text, delay=0.1):
     text_thread = threading.Thread(target=print_text)
     text_thread.start()
     text_thread.join()
-
+print('jorge')
 # Exemplo de uso
 txtlore("Este é um exemplo de texto sendo impresso com delay.", delay=0.1)
