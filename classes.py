@@ -198,7 +198,11 @@ def escolha_classe():
         guerreiro_barbaro()
     else:
         print("Categoria não encontrada")
-        return
+        sleep(3)
+        print("Escolha uma categoria valida !")
+        clear_terminal()
+        sleep(2)
+        escolha_classe()
     txtlore("AGORA ESCOLHA SUA CLASSE ", delay=0.05)
     txtlore(f"CLASSES DISPONÍVEIS > {categorias['classe']}  ", delay=0.05)
     x = input('QUAL VOCAÇÃO DESEJA SEGUIR ? > ')
