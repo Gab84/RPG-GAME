@@ -3,6 +3,22 @@ from Inimigo import *
 import time
 import sys
 from Itens import *
+from rich import *
+from rich.console import Console 
+from rich.panel import Panel
+from rich.text import Text
+from rich.box import *
+from rich.box import ROUNDED
+from rich.table import Table
+from rich.emoji import Emoji
+from rich.align import Align
+import threading
+
+
+
+
+
+
 
 def calcular_defesa_total(p):
     defesa_total = 0
@@ -35,7 +51,7 @@ def display_player_hp_bar(current_hp, max_hp, bar_length=10):
     white_squares = int(ratio * bar_length)
     black_squares = bar_length - white_squares
 
-    player_hp_bar = "❤️ " * white_squares + "🤍" * black_squares
+    player_hp_bar = "[white]:heartpulse:[/white]" * white_squares + " :white_medium_square:" * black_squares
 
     #print(f"\033[36m{player['nome']}\033[0m {player_hp_bar}  ")
     
@@ -48,7 +64,7 @@ def xp_bar(xp_atual,xp_max,bar_lenght=10):
     white_squares = int(ratio * bar_lenght)
     black_squares = bar_lenght - white_squares
 
-    player_xp_bar = "🔷 " * white_squares + "⚪" * black_squares
+    player_xp_bar = ":large_orange_diamond:" * white_squares + " :white_medium_square:" * black_squares
 
     #print(f"\033[36m{player['nome']}\033[0m {player_xp_bar}  ")
     
@@ -61,7 +77,7 @@ def mana_bar(man_atual,mana_max,bar_lenght=10):
     white_squares = int(ratio * bar_lenght)
     black_squares = bar_lenght - white_squares
 
-    player_mana_bar = "🟣 " * white_squares + "⚪" * black_squares
+    player_mana_bar = ':large_blue_circle:' * white_squares + " :white_medium_square:" * black_squares
 
     #print(f"\033[36m{player['nome']}\033[0m {player_xp_bar}  ")
     
@@ -71,33 +87,51 @@ def mana_bar(man_atual,mana_max,bar_lenght=10):
 
 
 def Hud_player():
+    c = Console()
+    t = Text()
     
     player_mana_bar = mana_bar(man_atual=player['mana'], mana_max=player['mana_max'])
     player_xp_bar = xp_bar(xp_atual=player['exp'], xp_max=player['exp_max'])
     player_hp_bar = display_player_hp_bar(current_hp=player['vida'], max_hp=player['vida_max'])
-    
     armaduras_equipadas = [armadura['nome_colorido'] for armadura in player['armaduras_equipadas'].values()]
-    defesa_total = player['defesa']
-    armap = player['armas']['nome_colorido']
+
+    tabela = Table(
+        box=ROUNDED,
+        show_header=False,
+        show_edge=True,
+        show_lines=False,
+        width = 113,
+        padding=(-1,3),
+    )
+
+    # limpeza nome da classe:
+    nome_classe_limpa = player['classe'][0].replace("1",'').replace('2','').strip().replace('>','').strip()
+    # separador de milhar:
+    dinheiro_limpo = f"{player['dinheiro']:<10,.0f}".replace(',','.')
+    # impressão de itens do inventário sem as aspas
+    itens_inventario = ', '.join(player['inventario'])
+    # print do equipamento
+    armadura = (', '.join(armaduras_equipadas) if armaduras_equipadas else 'sem armadura')
+    # tamanho do inventário
+    tot_inv = sum(len(item) for item in player['inventario'])
+
     
-    print(f"""------------------------------
-JOGADOR 👤 : {player['nome']} 
-------------------------------
-Vida: {player_hp_bar} | Mana: {player_mana_bar} 
-            {player['vida']}/{player['vida_max']}                       {player['mana']}/{player['mana_max']}                
-------------------------------
-Armaduras 🛡️ : {', '.join(armaduras_equipadas) if armaduras_equipadas else 'Nenhuma'} | INVENTÁRIO 🎒 : {player['inventario']} | Dinheiro 💰 : {player['dinheiro']}
+    tabela.add_column() 
+    tabela.add_row(f"{'[b]PAINEL PLAYER[/b]':^106}\n")
+    tabela.add_row(f"[b]NM[/b] 👤: {player['nome'].upper()[0:20]:<20}  [b]LV[/b][yellow]:star:{player['level']:<4}[/yellow]     [b]CLASSE[/b]: {nome_classe_limpa:<12}   [b]ARMA[/]: {player['armas']['nome_colorido']:<15}[white b]CASH[/]: [i]💲{dinheiro_limpo}[/]")
+    tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]     [b]EQ[/b]: {armadura}                                    [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+    tabela.add_row(f"[b]MP[/] {player_mana_bar:<10}     [cyan i]{player['mana']:>3} / {player['mana_max']:<3}[/]                  ")
+    tabela.add_row(f"[b]XP[/] {player_xp_bar:<10}     [#ffA500 i]{player['exp']:>3} / {player['exp_max']:<3}[/]     📦 [b]INVENTARIO[/b]: {itens_inventario if tot_inv <= 40 else itens_inventario[0:40]+'...'}")
+    tabela.add_section()
 
-Arma ⚔️ : {armap}
+    # linha equipamento e defesa antiga
+    '''tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]     [b]EQ[/]: {armadura}                                    [b]DEF[/]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")'''
 
-Nível 🌟 : {player['level']} | Exp 📚 : {player['exp']}/{player['exp_max']} {player_xp_bar} 
+    tabela_centralizada = Align.center(tabela)
 
-Classe 🏋️‍♀️ : {player['classe']}
+    c.print(tabela_centralizada)
 
-Defesa Total 🛡️ : {defesa_total}
 
-AÇÕES -->  {player['golpes'][0]}🗡️  : DANO : {player['dano'][0]} ❤️  | {player['golpes'][1]}🗡️  : DANO : {player['dano'][1]} ❤️  | {player['golpes'][2]} 🩹 : CURA: {player['cura']} ❤️  | {player['golpes'][3]}🎒 : ABRIR INVENTÁRIO
-------------------------------""")
 
 
 def Hud_inimigo(i_nome,i_vida,i_vida_m,i_level,i_xp):
