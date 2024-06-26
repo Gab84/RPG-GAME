@@ -13,7 +13,7 @@ from rich.table import Table
 from rich.emoji import Emoji
 from rich.align import Align
 import threading
-
+import keyboard
 
 
 
@@ -252,11 +252,21 @@ def txt_str():
 
 
 def txtlore(text, delay=0.1):
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(delay)
-    print()  
+    def print_text():
+        for char in text:
+            if keyboard.is_pressed('tab'):
+                sys.stdout.write(text[printed_chars:])
+                sys.stdout.flush()
+                break
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(delay)
+        print()
+
+    printed_chars = 0
+    text_thread = threading.Thread(target=print_text)
+    text_thread.start()
+    text_thread.join()
     
 
 #txtlore("TEXTO", delay=0.05)
