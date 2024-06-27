@@ -17,8 +17,10 @@ equip_adaga_i()
 gerar_raridades_itens(equipamentos, armas)
 equip_bot()
 equip_cap()
-equip_cal()
 equip_pet()
+equip_cal()
+
+print(player)
 
 
 Hud_player()
