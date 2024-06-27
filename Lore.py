@@ -2,18 +2,21 @@ from Acoes import *
 from Player import player
 from time import sleep
 from Textos import txtlore
-#from savescore import *
+from savescore import *
 from Modo_infinito import evnt_aleatorio
-from rich import *
 
 
 
 def part1():
-    txtlore(f"Em uma caverna, {player['nome']}, acorda devido a forte agitação, do som de metal, e risadas direcionadadas a {player['nome']}, ao abrir os olhos, uma voz rouca te chama.", delay=0.005)
+    print('>>> Você pode pressionar Shift caso queira pular o texto. <<<')
+    print('')
+    print('Capítulo 1: O Chamado da Aventura....')
+    print('')
+    txtlore(f"Você acorda em sua pequena cabana na vila de Eldoria. O sol está nascendo e o cheiro de pão fresco invade seus sentidos. Hoje é um dia especial; você completa 18 anos e finalmente pode se aventurar além dos limites da vila.", delay=0.005)
     sleep(1)
-    txtlore(f"VOZ > Ei, princesa! Acorda, você não está em um spa. Depois que esses malditos entram na merda do Ether virão mesmo uns preguiçosos. por falar nisso, sou Heclito, o Hemosiano.", delay=0.005)
+    txtlore(f"Você se levanta, veste sua armadura de couro e pega sua espada herdada de seu pai, um antigo guerreiro. No centro da vila, o ancião espera por você.", delay=0.005)
     sleep(1)
-    txtlore(f"Vamos, pegue alguns equipamentos. Precisamos de mais gente, mesmo que você não pareça fazer diferença nesse lugar.", delay=0.005)
+    txtlore(f"O ancião diz: -Parabéns, jovem aventureiro! Hoje você começa sua jornada. Primeiro, deve escolher sua classe e arma.", delay=0.005)
     p = input('Aperte enter para avançar')
     escolha_classe()
     
@@ -74,9 +77,12 @@ def part2():
     sleep(3)
     p = input('Aperte enter para avançar')
     clear_terminal()
-    txtlore(f"Após a coleta de seus itens, {player['nome']} vê dois caminhos a serem seguidos.", delay=0.05)
-    txtlore(f"Uma porta a direita que alguns dos soldados estão indo. Uma porta a esquerda que você percebe um velho bebado indo.", delay=0.005)
-    x = int(input('Qual caminho seguir ? \n1)direita \n2)esquerda \n> '))
+    print('')
+    print('Capítulo 2: A Primeira Jornada....')
+    print('')
+    txtlore(f"Independente da classe escolhida, o ancião dá a {player['nome']} uma missão para começar sua jornada.", delay=0.05)
+    txtlore(f"O destino de Eldoria depende da sua coragem e sabedoria. Vá ao norte, onde a Floresta Sussurrante esconde segredos antigos, ou ao sul, onde as Montanhas da Perdição são habitadas por monstros ferozes. Em qualquer direção, você encontrará desafios que testarão suas habilidades.", delay=0.005)
+    x = int(input('Qual caminho seguir ? \n1)norte \n2)sul \n> '))
     if x == 1:
         sleep(1)
         clear_terminal()
@@ -149,6 +155,8 @@ def part8():
 def PLAY():
     
     while True:
+        print('Bem vindo ao SACRAMENTO. escolha uma das opções abaixo para prosseguirmos.')
+        print('-------------------------------------------------------------------')
         print("1. Iniciar Jogo")
         print("2. Ver Ranking")
         print("3. Sair")
@@ -178,4 +186,4 @@ def p():
     part8()
     
     
-p()
+PLAY()
