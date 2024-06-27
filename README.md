@@ -28,7 +28,7 @@ Creio que todo mundo já me conheça, mas eu sou o Gabriel e, enfim, depois de l
 ## Considerações
 
 Esse jogo surgiu da minha curiosidade em aprimorar meus conhecimentos e testá-los na prática utilizando a linguagem Python. Hoje eu posso finalmente mostrar uma versão que você, jogador(a), conseguirá chegar ao fim (eu espero). Estou ciente de alguns bugs que ainda estão presentes no game, mas eu não estou mais sozinho. Hoje, eu conto com a ajuda dos queridos Lucas, Cleber e, não menos importante, Silvio, que a partir desse momento vão estar comigo colaborando para consertar bugs, melhorar a interface, fazer integrações com outras plataformas, desenvolver histórias e inúmeras outras coisas. Dito isso, nós contamos com a ajuda de vocês. Testem o nosso joguinho, que está disponível no meu GITHUB. Lá também estão todas as instruções de instalação das bibliotecas necessárias para o perfeito funcionamento e também como você pode iniciar o jogo.
-
+e tambem minha querida nat😝
 ## Rankeamento
 
 Sim, você não leu errado. O jogo conta com um sistema de Ranking que, assim como o jogo, está em beta. Porém, você já pode jogar e, quando finalizar o jogo, seja morrendo ou chegando ao final, você automaticamente enviará para o nosso banco de dados o nome que escolheu para o seu personagem e sua pontuação no jogo.
