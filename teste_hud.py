@@ -16,7 +16,14 @@ from Raridadesf import *
 equip_adaga_i()
 gerar_raridades_itens(equipamentos, armas)
 equip_bot()
+equip_cap()
+equip_cal()
+equip_pet()
 
 
 Hud_player()
-
+tamanho = 0
+for c in player['armaduras_equipadas']:
+    for letra in c:
+        tamanho += len(letra)
+print(tamanho)
