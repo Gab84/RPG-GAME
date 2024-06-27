@@ -11,7 +11,7 @@ from rich.align import Align
 from Textos import *
 from classes import * 
 from Raridadesf import *
-
+#from Acoes import combate_MagoObscuro
 
 equip_adaga_i()
 gerar_raridades_itens(equipamentos, armas)
@@ -29,3 +29,6 @@ for c in player['armaduras_equipadas']:
     for letra in c:
         tamanho += len(letra)
 print(tamanho)
+
+
+#combate_MagoObscuro()

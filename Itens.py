@@ -4,43 +4,43 @@ armas = {
     'adaga':{
         'nome':'adaga',
         'dano':[12,15],
-        'preco' : 10,
+        'preco' : (10*player['level']),
         'raridade': [],
-        'pontos' : 10,
+        'pontos' : (10*player['level']),
         'nome_colorido': ''
     },
     
     'espada_curta':{
         'dano':[15,20],
         'nome':'espada_curta',
-        'preco' : 15,
+        'preco' : (15*player['level']),
         'raridade': [],
-        'pontos' : 10,
+        'pontos' : (10*player['level']),
         'nome_colorido': ''
 
     },
     'cajado':{
         'dano':[10,23],
         'nome': 'cajado',
-        'preco' : 10,
+        'preco' : (10*player['level']),
         'raridade': [],
-        'pontos' : 10,
+        'pontos' : (10*player['level']),
         'nome_colorido': ''
     },
     'varinha':{
         'dano':[10,20],
         'nome': 'varinha',
-        'preco' : 10,
+        'preco' : (10*player['level']),
         'raridade': [],
-        'pontos' : 10,
+        'pontos' : (10*player['level']),
         'nome_colorido': ''
     },
     'machado':{
         'dano':[15,20],
         'nome' : 'machado',
-        'preco' : 20,
+        'preco' : (20*player['level']),
         'raridade': [],
-        'pontos' : 10,
+        'pontos' : (10*player['level']),
         'nome_colorido': ''
     },
     
@@ -51,17 +51,17 @@ consumiveis = {
 
     'suco_maça' : {
         'nome' : 'suco_maça',
-        'cura' : 30,
-        'preco' : 15,
+        'cura' : (30+player['level']+5),
+        'preco' : (15*player['level']),
         'raridade': [],
-        'pontos' : 20
+        'pontos' : (25*player['level'])
     },
     'cafezin' : {
         'nome' : 'cafezin',
-        'cura' : 30,
-        'preco' : 10,
+        'cura' : (30+player['level']+5),
+        'preco' : (10*player['level']),
         'raridade': [],
-        'pontos' : 25
+        'pontos' : (25*player['level'])
     },
 
 }
@@ -69,34 +69,34 @@ consumiveis = {
 equipamentos = {
     'capacete' : {
         'nome' : 'capacete',
-        'def' : 3,
+        'def' : (6+player['level']),
         'raridade': [],
-        'preco': 10,
-        'pontos' : 15,
+        'preco': (10*player['level']),
+        'pontos' : (15*player['level']),
         'nome_colorido': ''
     },
     'peitoral' : {
         'nome' : 'peitoral',
-        'def' : 5,
+        'def' : (5+player['level']),
         'raridade': [],
-        'preco': 20,
-        'pontos' : 30,
+        'preco': (20*player['level']),
+        'pontos' : (30*player['level']),
         'nome_colorido': ''
     },
     'calca' : {
         'nome' : 'calca',
-        'def' : 4,
+        'def' : (4+player['level']),
         'raridade': [],
-        'preco': 15,
-        'pontos' : 22,
+        'preco': (15*player['level']),
+        'pontos' : (22*player['level']),
         'nome_colorido': ''
     },
     'bota' : {
         'nome' : 'bota',
-        'def' : 2,
+        'def' : (2+player['level']),
         'raridade': [],
-        'preco': 5,
-        'pontos' : 13,
+        'preco': (5*player['level']),
+        'pontos' : (13*player['level']),
         'nome_colorido': ''
     },
 

@@ -563,10 +563,49 @@ def combate_Banche():
          i_vida_m=Banche['vida_max'],
          i_pt=(Banche['pontos']*Banche['level'])
          )
+def combate_dragao():
+    luta(p=player['nome'],
+         p_dano=player['dano'][0],
+         p_vida=player['vida'] ,
+         p_cura=player['cura'] ,
+         p_dano2=player['dano'][1],
+         p_atq_1=player['golpes'][0],
+         p_atq_2=player['golpes'][1],
+         inimigo='dragao',
+         i_vida=dragao['vida'],
+         i_dano=dragao['dano'],
+         i_dano2=dragao['dano2'],
+         i_xp= dragao['exp'],
+         i_level=dragao['level'],
+         p_vida_m=player['vida_max'],
+         i_vida_m=dragao['vida_max'],
+         i_pt=(dragao['pontos']*dragao['level'])
+         )
+
+def combate_MagoObscuro():
+    luta(p=player['nome'],
+         p_dano=player['dano'][0],
+         p_vida=player['vida'] ,
+         p_cura=player['cura'] ,
+         p_dano2=player['dano'][1],
+         p_atq_1=player['golpes'][0],
+         p_atq_2=player['golpes'][1],
+         inimigo='MagoObscuro',
+         i_vida=MagoObscuro['vida'],
+         i_dano=MagoObscuro['dano'],
+         i_dano2=MagoObscuro['dano2'],
+         i_xp= MagoObscuro['exp'],
+         i_level=MagoObscuro['level'],
+         p_vida_m=player['vida_max'],
+         i_vida_m=MagoObscuro['vida_max'],
+         i_pt=(MagoObscuro['pontos']*MagoObscuro['level'])
+         )
+
+
 
 def novo_i_aleatorio():
     reset_inimigos()
-    x = randint (1,5)
+    x = randint (1,7)
     if x == 1:
         combate_Banche()
     elif x == 2:
@@ -577,6 +616,10 @@ def novo_i_aleatorio():
         combate_mf()
     elif x ==5:
         combate_orc()
+    elif x ==6:
+        combate_dragao()
+    elif x ==7:
+        combate_MagoObscuro()
 
 def loja_aleatoria():
     x = randint (1,3)
@@ -603,5 +646,16 @@ def evnt_aleatorio():
 def infinito_mode():
     infinito = randint(0,4)
 
-#combate_orc()
+"""escolha_classe()
+equip_adaga_i()
+gerar_raridades_itens(equipamentos, armas)
+equip_bot()
+equip_cap()
+equip_pet()
+equip_cal()
+
+combate_MagoObscuro()"""
+#combate_orc()g
 #inventario_m()
+
+

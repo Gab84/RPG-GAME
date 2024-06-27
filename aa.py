@@ -6,6 +6,185 @@ from savescore import *
 from Modo_infinito import evnt_aleatorio
 from rich import *
 
+
+
+def cenario1_corpocorpo_norte():
+    print("Capítulo 4: O Santuário da Árvore Sagrada...")
+    txtlore(f"Você chega ao Santuário da Árvore Sagrada, um lugar de grande poder espiritual. Aqui, você deve enfrentar um guardião místico para provar seu valor e obter uma bênção poderosa.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    if 'Colar Divino' in player['artefatos']:
+        print("Com a ajuda do Colar Divino, você enfraquece o guardião místico e o derrota, obtendo mais pontos e uma bênção sagrada.")
+        player['pontos'] += 50
+        player['artefatos'].append('Bênção da Árvore Sagrada')
+    else:
+        print("Sem o Colar Divino, você enfrenta o guardião místico com bravura, mas é uma batalha difícil. Após uma luta árdua, você o derrota.")
+        player['pontos'] += 30
+    combate_mf()
+    cenario2_corpocorpo_norte()
+
+def cenario2_corpocorpo_norte():
+    print("Capítulo 5: A Caverna dos Espíritos...")
+    txtlore(f"Nas profundezas da caverna, você deve enfrentar espíritos antigos que guardam um tesouro lendário.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    combate_Banche()
+    combate_Banche()
+    if 'Bênção da Árvore Sagrada' in player['artefatos']:
+        print("Usando a Bênção da Árvore Sagrada, você purifica os espíritos e obtém o tesouro lendário.")
+        player['pontos'] += 100
+        player['artefatos'].append('Escudo Espiritual')
+    else:
+        print("Sem a Bênção da Árvore Sagrada, a luta é difícil, mas sua coragem e habilidades permitem que você derrote os espíritos.")
+        player['pontos'] += 70
+    cenario3_corpocorpo_norte()
+
+def cenario3_corpocorpo_norte():
+    print("Capítulo 6: O Encontro com o Druida Corrompido...")
+    txtlore(f"Em uma clareira sombria, você encontra um druida corrompido que ameaça a floresta com sua magia negra. Para salvar a floresta, você deve derrotá-lo.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    if 'Escudo Espiritual' in player['artefatos']:
+        print("Com a proteção do Escudo Espiritual, você reflete os feitiços do druida corrompido e o derrota.")
+        player['pontos'] += 150
+        player['artefatos'].append('Varinha do Druida')
+    else:
+        print("Sem o Escudo Espiritual, você enfrenta o druida corrompido com sua força, vencendo após uma batalha intensa.")
+        player['pontos'] += 100
+    cenario4_corpocorpo_norte()
+    
+def cenario4_corpocorpo_norte():
+    print("Capítulo 7: A Batalha Final...")
+    txtlore(f"Com todos os artefatos em mãos, você lidera um exército para defender a floresta de uma invasão inimiga. A batalha final está prestes a começar.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    combate_bd()
+    combate_bd()
+    combate_bd()
+    combate_bd()
+    if 'Varinha do Druida' in player['artefatos']:
+        print("Usando a Varinha do Druida, você conjura poderosos feitiços para fortalecer seu exército e derrotar os invasores, garantindo a vitória.")
+        player['pontos'] += 200
+    else:
+        print("Sem a Varinha do Druida, a batalha é difícil, mas sua liderança e habilidades garantem a vitória para a floresta.")
+        player['pontos'] += 150
+    fim()
+
+def cenario1_magia_norte():
+    print("Capítulo 4: O Círculo de Pedras...")
+    txtlore(f"Você chega ao Círculo de Pedras, um lugar de grande poder arcano. Aqui, você deve enfrentar um elemental que guarda segredos arcanos.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    if 'Colar Divino' in player['artefatos']:
+        print("Com a ajuda do Colar Divino, você desvenda os segredos arcanos e derrota o elemental, obtendo mais pontos e um artefato mágico.")
+        player['pontos'] += 50
+        player['artefatos'].append('Cristal Elemental')
+    else:
+        print("Sem o Colar Divino, você enfrenta o elemental com sua magia, vencendo após uma batalha intensa.")
+        player['pontos'] += 30
+    combate_mf()
+    cenario2_magia_norte()
+    
+def cenario2_magia_norte():
+    print("Capítulo 5: A Biblioteca Perdida...")
+    txtlore(f"Nas profundezas de uma biblioteca antiga, você deve enfrentar guardiões mágicos para obter um poderoso grimório.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    combate_orc()
+    if 'Cristal Elemental' in player['artefatos']:
+        print("Usando o poder do Cristal Elemental, você neutraliza os guardiões e obtém o grimório.")
+        player['pontos'] += 100
+        player['artefatos'].append('Grimório da Floresta')
+    else:
+        print("Sem o Cristal Elemental, a luta é difícil, mas suas habilidades mágicas permitem que você derrote os guardiões.")
+        player['pontos'] += 70
+    cenario3_magia_norte()
+    
+def cenario3_magia_norte():
+    print("Capítulo 6: O Encontro com o Dragão Verde...")
+    txtlore(f"Em uma caverna verdejante, você encontra um dragão verde, guardião de segredos antigos. Para obter seu conhecimento, você deve provar sua sabedoria e poder.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    if 'Grimório da Floresta' in player['artefatos']:
+        print("Usando os feitiços do Grimório da Floresta, você impressiona o dragão verde e obtém seu conhecimento.")
+        player['pontos'] += 150
+        player['artefatos'].append('Cristal do Dragão Verde')
+    else:
+        print("Sem o Grimório da Floresta, você enfrenta o dragão verde com seus poderes, vencendo com sabedoria.")
+        player['pontos'] += 100
+    cenario4_magia_norte()
+    
+def cenario4_magia_norte():
+    print("Capítulo 7: A Batalha Final...")
+    txtlore(f"Com todos os artefatos em mãos, você lidera um exército para defender a floresta de uma invasão inimiga. A batalha final está prestes a começar.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    combate_bd()
+    combate_bd()
+    combate_bd()
+    combate_bd()
+    if 'Cristal do Dragão Verde' in player['artefatos']:
+        print("Usando o Cristal do Dragão Verde, você conjura poderosos feitiços para fortalecer seu exército e derrotar os invasores, garantindo a vitória.")
+        player['pontos'] += 200
+    else:
+        print("Sem o Cristal do Dragão Verde, a batalha é difícil, mas sua liderança e habilidades mágicas garantem a vitória para a floresta.")
+        player['pontos'] += 150
+    fim()
+    
+def cenario1_furtivo_norte():
+    print("Capítulo 4: A Clareira dos Ladrões...")
+    txtlore(f"Você chega à Clareira dos Ladrões, um lugar de traição e intrigas. Aqui, você deve provar sua habilidade ao enfrentar um chefe de ladrões que guarda riquezas.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    if 'Colar Divino' in player['artefatos']:
+        print("Com a ajuda do Colar Divino, você derrota o chefe dos ladrões e obtém mais pontos e um artefato mágico.")
+        player['pontos'] += 50
+        player['artefatos'].append('Adaga Enfeitiçada')
+    else:
+        print("Sem o Colar Divino, você enfrenta o chefe dos ladrões com suas habilidades, vencendo após uma luta intensa.")
+        player['pontos'] += 30
+    combate_bd()
+    cenario2_furtivo_norte()
+
+def cenario2_furtivo_norte():
+    print("Capítulo 5: A Caverna dos Espectros...")
+    txtlore(f"Nas profundezas da caverna, você deve enfrentar espectros guardiões para obter um artefato sombrio.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    combate_Banche()
+    if 'Adaga Enfeitiçada' in player['artefatos']:
+        print("Usando o poder da Adaga Enfeitiçada, você neutraliza os espectros e obtém o artefato sombrio.")
+        player['pontos'] += 100
+        player['artefatos'].append('Amuleto das Sombras')
+    else:
+        print("Sem a Adaga Enfeitiçada, a luta é difícil, mas suas habilidades permitem que você derrote os espectros.")
+        player['pontos'] += 70
+    cenario3_furtivo_norte()
+    
+def cenario3_furtivo_norte():
+    print("Capítulo 6: O Encontro com o Mestre Assassino...")
+    txtlore(f"Em uma fortaleza oculta, você encontra o Mestre Assassino, guardião de técnicas secretas. Para obter seu conhecimento, você deve provar sua furtividade e habilidade.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    if 'Amuleto das Sombras' in player['artefatos']:
+        print("Usando as habilidades do Amuleto das Sombras, você impressiona o Mestre Assassino e obtém seu conhecimento.")
+        player['pontos'] += 150
+        player['artefatos'].append('Capa das Sombras')
+    else:
+        print("Sem o Amuleto das Sombras, você enfrenta o Mestre Assassino com suas habilidades, vencendo com precisão.")
+        player['pontos'] += 100
+    cenario4_furtivo_norte()
+    
+def cenario4_furtivo_norte():
+    print("Capítulo 7: A Batalha Final...")
+    txtlore(f"Com todos os artefatos em mãos, você lidera um exército para defender sua vila de uma invasão inimiga. A batalha final está prestes a começar.", delay=0.05)
+    p = input('Aperte enter para avançar')
+    combate_goblin()
+    combate_goblin()
+    combate_goblin()
+    if 'Capa das Sombras' in player['artefatos']:
+        print("Usando a Capa das Sombras, você realiza ataques furtivos para enfraquecer os inimigos e garantir a vitória.")
+        player['pontos'] += 200
+    else:
+        print("Sem a Capa das Sombras, a batalha é difícil, mas sua liderança e habilidades garantem a vitória para sua vila.")
+        player['pontos'] += 150
+    fim()
+
+
+
+
+
+
+
 def cenario1_furtivo():
     print("Capítulo 4: O Covil dos Ladrões...")
     txtlore(f"Você chega ao Covil dos Ladrões, um lugar de traição e intrigas. Aqui, você deve provar sua habilidade ao enfrentar um chefe de ladrões que guarda riquezas.", delay=0.05)
