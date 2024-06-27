@@ -100,7 +100,7 @@ def Hud_player():
         show_header=False,
         show_edge=True,
         show_lines=False,
-        width = 113,
+        width = 114,
         padding=(-1,3),
     )
 
@@ -118,8 +118,8 @@ def Hud_player():
     
     tabela.add_column() 
     tabela.add_row(f"{'[b]PAINEL PLAYER[/b]':^106}\n")
-    tabela.add_row(f"[b]NM[/b] 👤: {player['nome'].upper()[0:20]:<20}  [b]LV[/b][yellow]:star:{player['level']:<4}[/yellow]     [b]CLASSE[/b]: {nome_classe_limpa:<12}   [b]ARMA[/]: {player['armas']['nome_colorido']:<15}[white b]CASH[/]: [i]💲{dinheiro_limpo}[/]")
-    tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]     [b]EQ[/b]: {armadura}                                    [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+    tabela.add_row(f"[b]NM[/b] 👤: {player['nome'].upper()[0:17]:<20}  [b]LV:[/b][yellow]:star: {player['level']:<4}[/yellow]     [b]CLASSE[/b]: {nome_classe_limpa:<12}   [b]ARMA[/]: {player['armas']['nome_colorido']:<15}[white b]CASH[/]:[i green]💲 {dinheiro_limpo}[/]")
+    tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura}                                    [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
     tabela.add_row(f"[b]MP[/] {player_mana_bar:<10}     [cyan i]{player['mana']:>3} / {player['mana_max']:<3}[/]                  ")
     tabela.add_row(f"[b]XP[/] {player_xp_bar:<10}     [#ffA500 i]{player['exp']:>3} / {player['exp_max']:<3}[/]     📦 [b]INVENTARIO[/b]: {itens_inventario if tot_inv <= 40 else itens_inventario[0:40]+'...'}")
     tabela.add_section()
@@ -254,7 +254,7 @@ def txt_str():
 def txtlore(text, delay=0.1):
     def print_text():
         for char in text:
-            if keyboard.is_pressed('Shift'):
+            if keyboard.is_pressed('tab'):
                 sys.stdout.write(text[printed_chars:])
                 sys.stdout.flush()
                 break

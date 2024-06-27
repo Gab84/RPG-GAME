@@ -1,7 +1,7 @@
 import sys
 import platform
 import os
-
+from rich import *
 player = {
     'nome' : input('Digite o Nome do Heroi ! > '),
     'level' : 1,

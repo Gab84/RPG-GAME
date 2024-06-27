@@ -1,6 +1,6 @@
 from random import randint
 from Player import *
-
+from rich import *
 def lx():
   global level
   level = randint(1,2)  #master piece

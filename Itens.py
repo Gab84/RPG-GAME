@@ -1,5 +1,5 @@
 from Player import player
-
+from rich import *
 armas = {
     'adaga':{
         'nome':'adaga',

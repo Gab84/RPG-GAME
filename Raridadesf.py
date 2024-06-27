@@ -1,4 +1,5 @@
 import random
+from rich import *
 # Define as escalas de raridade, seus multiplicadores e cores
 raridades = {
     'comum': {'multiplicador': 1.0, 'cor': '[white]'},         # Branco padrão

@@ -4,7 +4,7 @@ from time import sleep
 from Textos import txtlore
 from savescore import *
 from Modo_infinito import evnt_aleatorio
-
+from rich import *
 
 
 def part1():

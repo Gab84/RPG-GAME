@@ -10,7 +10,7 @@ from classes import *
 from Itens import *
 from status import distribuir_pt
 from Loja import *
-
+from rich import *
 
 
 def chance_drop_inimigos():
