@@ -72,12 +72,14 @@ def cenario3_corpocorpo_sul():
         player['pontos'] += 100
         combate_mf()
         chanc()
+    if chanx <40:
         print("Após a vitória contra o inimigo, você toma a força do artefato")
         player['artefatos'].append('Escudo Espiritual')
         cenario4_corpocorpo_sul()
-        
+    else:
+        print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+        cenario4_corpocorpo_sul()
 
-    cenario4_corpocorpo_sul()
     
 def cenario4_corpocorpo_sul():
     print("Capítulo 7: A Batalha Final...")
@@ -106,8 +108,15 @@ def cenario1_magia_sul():
     else:
         print("Sem o Colar Divino, você enfrenta o elemental com sua magia, vencendo após uma batalha intensa.")
         player['pontos'] += 30
-    combate_mf()
-    cenario2_magia_sul()
+        combate_mf()
+        chanc()
+        if chanx <40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Colar Divino')
+            cenario2_magia_sul()
+        else:
+            print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+            cenario2_magia_sul()
     
 def cenario2_magia_sul():
     print("Capítulo 5: A Biblioteca Perdida...")
@@ -121,7 +130,15 @@ def cenario2_magia_sul():
     else:
         print("Sem o Cristal Elemental, a luta é difícil, mas suas habilidades mágicas permitem que você derrote os guardiões.")
         player['pontos'] += 70
-    cenario3_magia_sul()
+        combate_orc()
+        chanc()
+        if chanx <40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Cristal Elemental')
+            cenario3_magia_sul()
+        else:
+             print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+             cenario3_magia_sul()
     
 def cenario3_magia_sul():
     print("Capítulo 6: O Encontro com o Dragão Verde...")
@@ -134,7 +151,15 @@ def cenario3_magia_sul():
     else:
         print("Sem o Grimório da Floresta, você enfrenta o dragão verde com seus poderes, vencendo com sabedoria.")
         player['pontos'] += 100
-    cenario4_magia_sul()
+        combate_dragao()
+        chanc()
+        if chanx < 40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Grimório da Floresta')
+            cenario4_magia_sul()
+        else:
+            print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+            cenario4_magia_sul()
     
 def cenario4_magia_sul():
     print("Capítulo 7: A Batalha Final...")
@@ -163,8 +188,15 @@ def cenario1_furtivo_sul():
     else:
         print("Sem o Colar Divino, você enfrenta o chefe dos ladrões com suas habilidades, vencendo após uma luta intensa.")
         player['pontos'] += 30
-    combate_bd()
-    cenario2_furtivo_sul()
+        combate_bd()
+        chanc()
+        if chanx < 40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Colar Divino')
+            cenario2_furtivo_sul()
+        else:
+            print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+            cenario2_furtivo_sul()
 
 def cenario2_furtivo_sul():
     print("Capítulo 5: A Caverna dos Espectros...")
@@ -178,7 +210,16 @@ def cenario2_furtivo_sul():
     else:
         print("Sem a Adaga Enfeitiçada, a luta é difícil, mas suas habilidades permitem que você derrote os espectros.")
         player['pontos'] += 70
-    cenario3_furtivo_sul()
+        combate_Banche()
+        chanc()
+        if chanx <40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Adaga Enfeitiçada')
+            cenario3_furtivo_sul()
+        else:
+            print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+            cenario3_furtivo_sul()
+    
     
 def cenario3_furtivo_sul():
     print("Capítulo 6: O Encontro com o Mestre Assassino...")
@@ -191,7 +232,15 @@ def cenario3_furtivo_sul():
     else:
         print("Sem o Amuleto das Sombras, você enfrenta o Mestre Assassino com suas habilidades, vencendo com precisão.")
         player['pontos'] += 100
-    cenario4_furtivo_sul()
+        combate_orc()
+        chanc()
+        if chanx <40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Amuleto das Sombras')
+            cenario4_furtivo_sul()
+        else:
+            print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+            cenario4_furtivo_sul()
     
 def cenario4_furtivo_sul():
     print("Capítulo 7: A Batalha Final...")
