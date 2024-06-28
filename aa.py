@@ -505,7 +505,7 @@ def norte():
     txtlore(f"A Floresta Sussurrante é misteriosa e cheia de vida. As árvores antigas parecem sussurrar segredos e histórias de tempos passados. Você encontra um pergaminho antigo que revela a localização de um artefato mágico escondido nas profundezas da floresta. Para obter o artefato, você deve resolver um enigma apresentado por uma criatura mágica.", delay=0.05)
     p = input('Aperte enter para avançar')
     txtlore(f"O Enigma da Floresta", delay=0.005)
-    
+    #Corpo a Corpo
     if player['classe'] == '1 > Guerreiro' or player['classe'] == '2 > Barbaro' :
         x = input('Eu sou forte como uma rocha, mas cresço com a água. O que sou eu? \n> ').lower()
         if x =='carvalho':
@@ -515,13 +515,18 @@ def norte():
             gerar_raridades_itens(armas,equipamentos)
             equip_cap()
             combate_bd()
-            #
+            cenario1_CorpoAcorpo()
         else:
             print('Você errou a resposta e a criatura da floresta avança em você. prepare-se para a batalha.')
             combate_mf()
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Colar Divino')
-            #
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Colar Divino')
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele estava quebrado. Você segue seu caminho.')
+                cenario1_CorpoAcorpo()
+    #Magias  
     elif player['classe'] == '1 > Bruxo' or player['classe'] == '2 > Mago' :
         
         x = input('Eu posso ser quebrado sem ser tocado. O que sou eu? \n> ').lower()
@@ -532,13 +537,18 @@ def norte():
             gerar_raridades_itens(armas,equipamentos)
             equip_cap()
             combate_bd()
-            #
+            cenario1_magico()
         else:
             print('Você errou a resposta e a criatura da floresta avança em você. prepare-se para a batalha.')
             combate_mf()
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Colar Divino')
-            #
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Colar Divino')
+                cenario1_magico()
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele está quebrado. Você segue seu caminho.')
+                cenario1_magico()
         
     elif player['classe'] == '1 > Bandido' or player['classe'] == '2 > Gnomo' :
         
@@ -550,14 +560,18 @@ def norte():
             gerar_raridades_itens(armas,equipamentos)
             equip_cap()
             combate_bd()
-            #---------------------
+            cenario1_furtivo()
         else:
             print('Você errou a resposta e a criatura da floresta avança em você. prepare-se para a batalha.')
             combate_mf()
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Colar Divino')
-            #prosseguir com a proxima parte
-
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Colar Divino')
+                cenario1_furtivo()
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele está quebrado. Você segue seu caminho.')
+                cenario1_furtivo()
 def cap2():
     sleep(3)
     p = input('Aperte enter para avançar')
