@@ -519,13 +519,13 @@ def norte():
         else:
             print('Você errou a resposta e a criatura da floresta avança em você. prepare-se para a batalha.')
             combate_mf()
-        chanc()
-        if chanx <  40:
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Colar Divino')
-        else:
-            print('Após a derrota do inimigo, você toma a força o artefato mas ele estava quebrado. Você segue seu caminho.')
-            cenario1_CorpoAcorpo()
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Colar Divino')
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele estava quebrado. Você segue seu caminho.')
+                cenario1_CorpoAcorpo()
     #Magias  
     elif player['classe'] == '1 > Bruxo' or player['classe'] == '2 > Mago' :
         
@@ -541,14 +541,14 @@ def norte():
         else:
             print('Você errou a resposta e a criatura da floresta avança em você. prepare-se para a batalha.')
             combate_mf()
-        chanc()
-        if chanx <  40:
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Colar Divino')
-            cenario1_magico()
-        else:
-            print('Após a derrota do inimigo, você toma a força o artefato mas ele está quebrado. Você segue seu caminho.')
-            cenario1_magico()
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Colar Divino')
+                cenario1_magico()
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele está quebrado. Você segue seu caminho.')
+                cenario1_magico()
         
     elif player['classe'] == '1 > Bandido' or player['classe'] == '2 > Gnomo' :
         
@@ -564,14 +564,14 @@ def norte():
         else:
             print('Você errou a resposta e a criatura da floresta avança em você. prepare-se para a batalha.')
             combate_mf()
-        chanc()
-        if chanx <  40:
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Colar Divino')
-            cenario1_furtivo()
-        else:
-            print('Após a derrota do inimigo, você toma a força o artefato mas ele está quebrado. Você segue seu caminho.')
-            cenario1_furtivo()
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Colar Divino')
+                cenario1_furtivo()
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele está quebrado. Você segue seu caminho.')
+                cenario1_furtivo()
 def cap2():
     sleep(3)
     p = input('Aperte enter para avançar')
