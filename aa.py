@@ -23,17 +23,22 @@ def cenario1_corpocorpo_sul():
         player['pontos'] += 50
         player['artefatos'].append('Bênção da Árvore Sagrada')
     else:
-        print("Sem o Colar Divino, você enfrenta o guardião místico com bravura, mas é uma batalha difícil. Após uma luta árdua, você o derrota.")
+        print("Sem o Colar Divino, você enfrenta o guardião místico com bravura, mas é uma batalha difícil. }")
         player['pontos'] += 30
-    combate_mf()
-    cenario2_corpocorpo_sul()
+        combate_mf()
+        chanc()
+        if chanx <40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Colar Divino')
+            cenario2_corpocorpo_sul()
+        else:
+            print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+            cenario2_corpocorpo_sul()
 
 def cenario2_corpocorpo_sul():
     print("Capítulo 5: A Caverna dos Espíritos...")
     txtlore(f"Nas profundezas da caverna, você deve enfrentar espíritos antigos que guardam um tesouro lendário.", delay=0.05)
     p = input('Aperte enter para avançar')
-    combate_Banche()
-    combate_Banche()
     if 'Bênção da Árvore Sagrada' in player['artefatos']:
         print("Usando a Bênção da Árvore Sagrada, você purifica os espíritos e obtém o tesouro lendário.")
         player['pontos'] += 100
@@ -41,6 +46,17 @@ def cenario2_corpocorpo_sul():
     else:
         print("Sem a Bênção da Árvore Sagrada, a luta é difícil, mas sua coragem e habilidades permitem que você derrote os espíritos.")
         player['pontos'] += 70
+        combate_Banche()
+        combate_Banche()
+        chanc()
+        if chanx <40:
+            print("Após a vitória contra o inimigo, você toma a força do artefato")
+            player['artefatos'].append('Bênção da Árvore Sagrada')
+            cenario3_corpocorpo_sul()
+        else:
+            print("Após a vitória contra o inimigo, você toma a força do artefato, mas ele está quebrado")
+            cenario3_corpocorpo_sul()
+        
     cenario3_corpocorpo_sul()
 
 def cenario3_corpocorpo_sul():
@@ -54,6 +70,13 @@ def cenario3_corpocorpo_sul():
     else:
         print("Sem o Escudo Espiritual, você enfrenta o druida corrompido com sua força, vencendo após uma batalha intensa.")
         player['pontos'] += 100
+        combate_mf()
+        chanc()
+        print("Após a vitória contra o inimigo, você toma a força do artefato")
+        player['artefatos'].append('Escudo Espiritual')
+        cenario4_corpocorpo_sul()
+        
+
     cenario4_corpocorpo_sul()
     
 def cenario4_corpocorpo_sul():
