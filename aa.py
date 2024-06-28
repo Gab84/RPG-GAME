@@ -7,6 +7,12 @@ from Modo_infinito import evnt_aleatorio
 from rich import *
 
 
+def chanc():
+    global chanx
+    x = randint(1,60)
+    chanx = x
+    return chanx
+
 
 def cenario1_corpocorpo_sul():
     print("Capítulo 4: O Santuário da Árvore Sagrada...")
@@ -447,8 +453,14 @@ def sul():
         else:
             print('Você errou a resposta e a guerreira se torna um ser espiritual e parte para o ataque. prepare-se para a batalha.')
             combate_Banche()
-            print('Após a derrota do inimigo, você toma a força o artefato mas percebe que ele estava quebrado.')
-            cenario1_CorpoAcorpo()
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Pedra Do Esmos')
+                cenario1_corpocorpo_sul()
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele estava quebrado. Você segue seu caminho.')
+                cenario1_corpocorpo_sul()
             
     elif player['classe'] == '1 > Bruxo' or player['classe'] == '2 > Mago' :
         
@@ -468,10 +480,16 @@ def sul():
         else:
             print('Você errou a resposta e a guerreira se torna um ser espiritual e parte para o ataque. prepare-se para a batalha.')
             combate_Banche()
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Pedra Do Esmos')
-            cenario1_magico()
-        
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Pedra Do Esmos')
+                cenario1_magia_sul()
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele estava quebrado. Você segue seu caminho.')
+                cenario1_magia_sul()
+                
+    #Furtivo    
     elif player['classe'] == '1 > Bandido' or player['classe'] == '2 > Gnomo' :
         
         x = input('Eu posso atravessar o céu e a terra, mas sou tão pequeno que quase ninguém me nota. O que sou eu? \n> ').lower()
@@ -489,9 +507,14 @@ def sul():
         else:
             print('Você errou a resposta e a guerreira se torna um ser espiritual e parte para o ataque. prepare-se para a batalha.')
             combate_Banche()
-            print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
-            player['artefatos'].append('Pedra Do Esmos')
-            cenario1_furtivo()
+            chanc()
+            if chanx <  40:
+                print('Após a derrota do inimigo, você toma a força o artefato e segue seu caminho.')
+                player['artefatos'].append('Pedra Do Esmos')
+                cenario1_furtivo_sul()
+            else:
+                print('Após a derrota do inimigo, você toma a força o artefato mas ele estava quebrado. Você segue seu caminho.')
+                cenario1_furtivo_sul()
 
     
 
