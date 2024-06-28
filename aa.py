@@ -265,8 +265,15 @@ def cenario1_magico():
         cenario2_magico()
     else:
         print("Sem a Pedra Do Esmos, você enfrenta o mago ancião com sua magia, vencendo após uma batalha intensa.")
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Amuleto Arcano')
+            cenario2_magico()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario2_magico()
         player['pontos'] += 30
-        cenario2_magico()
+
     
 
 def cenario2_magico():
@@ -281,8 +288,15 @@ def cenario2_magico():
         cenario3_magico()
     else:
         print("Sem o Amuleto Arcano, a luta é difícil, mas suas habilidades mágicas permitem que você derrote o feiticeiro.")
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Grimório das Sombras')
+            cenario3_magico()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario3_magico()
         player['pontos'] += 70
-        cenario3_magico()
+
 
 def cenario3_magico():
     print("Capítulo 6: O Encontro com o Dragão Ancião...")
@@ -294,10 +308,17 @@ def cenario3_magico():
         player['artefatos'].append('Cristal de Dragão')
         cenario4_magico()
     else:
-        combate_mf() #colocar a porra do dragão
+        combate_dragao() #colocar a porra do dragão
         print("Sem o Grimório das Sombras, você enfrenta o dragão ancião com seus poderes, vencendo com sabedoria.")
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Cristal de Dragão')
+            cenario4_magico()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario4_magico()
         player['pontos'] += 100
-        cenario4_magico()
+
 
 def cenario4_magico():
     print("Capítulo 7: A Batalha Final...")
@@ -468,7 +489,7 @@ def sul():
             if player['classe'] == '2 > Barbaro':
                 equip_machado()
             combate_bd()
-            cenario1_CorpoAcorpo()
+            cenario1_corpocorpo_sul()
         else:
             print('Você errou a resposta e a guerreira se torna um ser espiritual e parte para o ataque. prepare-se para a batalha.')
             combate_Banche()
@@ -495,7 +516,7 @@ def sul():
                 equip_varinha()
             combate_bd()
 
-            cenario1_magico()
+            cenario1_magia_sul()
         else:
             print('Você errou a resposta e a guerreira se torna um ser espiritual e parte para o ataque. prepare-se para a batalha.')
             combate_Banche()
@@ -522,7 +543,7 @@ def sul():
             if player['classe'] == '2 > Gnomo':
                 equip_adaga()
             combate_bd()
-            cenario1_furtivo()
+            cenario1_furtivo_sul()
         else:
             print('Você errou a resposta e a guerreira se torna um ser espiritual e parte para o ataque. prepare-se para a batalha.')
             combate_Banche()
