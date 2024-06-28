@@ -8,7 +8,7 @@ from rich import *
 
 
 
-def cenario1_corpocorpo_norte():
+def cenario1_corpocorpo_sul():
     print("Capítulo 4: O Santuário da Árvore Sagrada...")
     txtlore(f"Você chega ao Santuário da Árvore Sagrada, um lugar de grande poder espiritual. Aqui, você deve enfrentar um guardião místico para provar seu valor e obter uma bênção poderosa.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -20,9 +20,9 @@ def cenario1_corpocorpo_norte():
         print("Sem o Colar Divino, você enfrenta o guardião místico com bravura, mas é uma batalha difícil. Após uma luta árdua, você o derrota.")
         player['pontos'] += 30
     combate_mf()
-    cenario2_corpocorpo_norte()
+    cenario2_corpocorpo_sul()
 
-def cenario2_corpocorpo_norte():
+def cenario2_corpocorpo_sul():
     print("Capítulo 5: A Caverna dos Espíritos...")
     txtlore(f"Nas profundezas da caverna, você deve enfrentar espíritos antigos que guardam um tesouro lendário.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -35,9 +35,9 @@ def cenario2_corpocorpo_norte():
     else:
         print("Sem a Bênção da Árvore Sagrada, a luta é difícil, mas sua coragem e habilidades permitem que você derrote os espíritos.")
         player['pontos'] += 70
-    cenario3_corpocorpo_norte()
+    cenario3_corpocorpo_sul()
 
-def cenario3_corpocorpo_norte():
+def cenario3_corpocorpo_sul():
     print("Capítulo 6: O Encontro com o Druida Corrompido...")
     txtlore(f"Em uma clareira sombria, você encontra um druida corrompido que ameaça a floresta com sua magia negra. Para salvar a floresta, você deve derrotá-lo.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -48,9 +48,9 @@ def cenario3_corpocorpo_norte():
     else:
         print("Sem o Escudo Espiritual, você enfrenta o druida corrompido com sua força, vencendo após uma batalha intensa.")
         player['pontos'] += 100
-    cenario4_corpocorpo_norte()
+    cenario4_corpocorpo_sul()
     
-def cenario4_corpocorpo_norte():
+def cenario4_corpocorpo_sul():
     print("Capítulo 7: A Batalha Final...")
     txtlore(f"Com todos os artefatos em mãos, você lidera um exército para defender a floresta de uma invasão inimiga. A batalha final está prestes a começar.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -66,7 +66,7 @@ def cenario4_corpocorpo_norte():
         player['pontos'] += 150
     fim()
 
-def cenario1_magia_norte():
+def cenario1_magia_sul():
     print("Capítulo 4: O Círculo de Pedras...")
     txtlore(f"Você chega ao Círculo de Pedras, um lugar de grande poder arcano. Aqui, você deve enfrentar um elemental que guarda segredos arcanos.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -78,9 +78,9 @@ def cenario1_magia_norte():
         print("Sem o Colar Divino, você enfrenta o elemental com sua magia, vencendo após uma batalha intensa.")
         player['pontos'] += 30
     combate_mf()
-    cenario2_magia_norte()
+    cenario2_magia_sul()
     
-def cenario2_magia_norte():
+def cenario2_magia_sul():
     print("Capítulo 5: A Biblioteca Perdida...")
     txtlore(f"Nas profundezas de uma biblioteca antiga, você deve enfrentar guardiões mágicos para obter um poderoso grimório.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -92,9 +92,9 @@ def cenario2_magia_norte():
     else:
         print("Sem o Cristal Elemental, a luta é difícil, mas suas habilidades mágicas permitem que você derrote os guardiões.")
         player['pontos'] += 70
-    cenario3_magia_norte()
+    cenario3_magia_sul()
     
-def cenario3_magia_norte():
+def cenario3_magia_sul():
     print("Capítulo 6: O Encontro com o Dragão Verde...")
     txtlore(f"Em uma caverna verdejante, você encontra um dragão verde, guardião de segredos antigos. Para obter seu conhecimento, você deve provar sua sabedoria e poder.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -105,9 +105,9 @@ def cenario3_magia_norte():
     else:
         print("Sem o Grimório da Floresta, você enfrenta o dragão verde com seus poderes, vencendo com sabedoria.")
         player['pontos'] += 100
-    cenario4_magia_norte()
+    cenario4_magia_sul()
     
-def cenario4_magia_norte():
+def cenario4_magia_sul():
     print("Capítulo 7: A Batalha Final...")
     txtlore(f"Com todos os artefatos em mãos, você lidera um exército para defender a floresta de uma invasão inimiga. A batalha final está prestes a começar.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -123,7 +123,7 @@ def cenario4_magia_norte():
         player['pontos'] += 150
     fim()
     
-def cenario1_furtivo_norte():
+def cenario1_furtivo_sul():
     print("Capítulo 4: A Clareira dos Ladrões...")
     txtlore(f"Você chega à Clareira dos Ladrões, um lugar de traição e intrigas. Aqui, você deve provar sua habilidade ao enfrentar um chefe de ladrões que guarda riquezas.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -135,9 +135,9 @@ def cenario1_furtivo_norte():
         print("Sem o Colar Divino, você enfrenta o chefe dos ladrões com suas habilidades, vencendo após uma luta intensa.")
         player['pontos'] += 30
     combate_bd()
-    cenario2_furtivo_norte()
+    cenario2_furtivo_sul()
 
-def cenario2_furtivo_norte():
+def cenario2_furtivo_sul():
     print("Capítulo 5: A Caverna dos Espectros...")
     txtlore(f"Nas profundezas da caverna, você deve enfrentar espectros guardiões para obter um artefato sombrio.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -149,9 +149,9 @@ def cenario2_furtivo_norte():
     else:
         print("Sem a Adaga Enfeitiçada, a luta é difícil, mas suas habilidades permitem que você derrote os espectros.")
         player['pontos'] += 70
-    cenario3_furtivo_norte()
+    cenario3_furtivo_sul()
     
-def cenario3_furtivo_norte():
+def cenario3_furtivo_sul():
     print("Capítulo 6: O Encontro com o Mestre Assassino...")
     txtlore(f"Em uma fortaleza oculta, você encontra o Mestre Assassino, guardião de técnicas secretas. Para obter seu conhecimento, você deve provar sua furtividade e habilidade.", delay=0.05)
     p = input('Aperte enter para avançar')
@@ -162,9 +162,9 @@ def cenario3_furtivo_norte():
     else:
         print("Sem o Amuleto das Sombras, você enfrenta o Mestre Assassino com suas habilidades, vencendo com precisão.")
         player['pontos'] += 100
-    cenario4_furtivo_norte()
+    cenario4_furtivo_sul()
     
-def cenario4_furtivo_norte():
+def cenario4_furtivo_sul():
     print("Capítulo 7: A Batalha Final...")
     txtlore(f"Com todos os artefatos em mãos, você lidera um exército para defender sua vila de uma invasão inimiga. A batalha final está prestes a começar.", delay=0.05)
     p = input('Aperte enter para avançar')
