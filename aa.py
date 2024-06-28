@@ -188,7 +188,7 @@ def cenario4_furtivo_sul():
 
 
 
-
+##### cenarios norte
 
 
 def cenario1_furtivo():
@@ -203,8 +203,16 @@ def cenario1_furtivo():
         cenario2_furtivo()
     else:
         print("Sem a Pedra Do Esmos, você enfrenta o chefe dos ladrões com suas habilidades, vencendo após uma luta intensa.")
+        chanc()
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Máscara Sombria')
+            cenario2_furtivo()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario2_furtivo()
         player['pontos'] += 30
-        cenario2_furtivo()
+
     
 
 def cenario2_furtivo():
@@ -219,8 +227,16 @@ def cenario2_furtivo():
         cenario3_furtivo()
     else:
         print("Sem a Máscara Sombria, a luta é difícil, mas suas habilidades permitem que você derrote os espectros.")
+        chanc()
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Amuleto das Sombras')
+            cenario3_furtivo()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario3_furtivo()
         player['pontos'] += 70
-        cenario3_furtivo()
+
 
 def cenario3_furtivo():
     print("Capítulo 6: O Encontro com o Mestre Assassino...")
@@ -233,8 +249,16 @@ def cenario3_furtivo():
         cenario4_furtivo()
     else:
         print("Sem o Amuleto das Sombras, você enfrenta o Mestre Assassino com suas habilidades, vencendo com precisão.")
+        chanc()
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Adaga da Sombra')
+            cenario4_furtivo()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario4_furtivo()
         player['pontos'] += 100
-        cenario4_furtivo()
+
 
 def cenario4_furtivo():
     print("Capítulo 7: A Batalha Final...")
@@ -265,6 +289,7 @@ def cenario1_magico():
         cenario2_magico()
     else:
         print("Sem a Pedra Do Esmos, você enfrenta o mago ancião com sua magia, vencendo após uma batalha intensa.")
+        chanc()
         if chanx <40:
             print('Após a vitoria contra o inimigo, você toma a força o artefato.')
             player['artefatos'].append('Amuleto Arcano')
@@ -288,6 +313,7 @@ def cenario2_magico():
         cenario3_magico()
     else:
         print("Sem o Amuleto Arcano, a luta é difícil, mas suas habilidades mágicas permitem que você derrote o feiticeiro.")
+        chanc()
         if chanx <40:
             print('Após a vitoria contra o inimigo, você toma a força o artefato.')
             player['artefatos'].append('Grimório das Sombras')
@@ -310,6 +336,7 @@ def cenario3_magico():
     else:
         combate_dragao() #colocar a porra do dragão
         print("Sem o Grimório das Sombras, você enfrenta o dragão ancião com seus poderes, vencendo com sabedoria.")
+        chanc()
         if chanx <40:
             print('Após a vitoria contra o inimigo, você toma a força o artefato.')
             player['artefatos'].append('Cristal de Dragão')
