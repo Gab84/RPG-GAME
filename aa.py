@@ -320,11 +320,6 @@ def cenario4_magico():
 def cenario1_CorpoAcorpo():
     clear_terminal()
     print("Capítulo 4: O Vale dos orcs...")
-    if 'Pedra Do Esmos' in player['artefatos']:
-        txtlore(f"Após a coleta do artefato, você segue avante na sua jornada", delay=0.05)
-    else:
-        txtlore(f"Você segue avante na sua jornada", delay=0.05)
-    p = input('Pressione enter para avançar ')
     txtlore(f"Você chega ao Vale dos orcs, um lugar lendário conhecido por suas enormes criaturas e riquezas escondidas. No entanto, para avançar, você deve enfrentar um orc guardião que protege a entrada do vale.", delay=0.05)
     p = input('Aperte enter para avançar')
     if 'Pedra Do Esmos' in player['artefatos']:
@@ -336,15 +331,23 @@ def cenario1_CorpoAcorpo():
         player['artefatos'].append('Anel dos Gigantes')
         gerar_raridades_itens(armas,equipamentos)
         equip_pet()
-        
         cenario2_CorpoAcorpo()
         
     else:
+        
         print("Sem a Pedra Do Esmos, você enfrenta o gigante com bravura, mas é uma batalha difícil.")
         player['pontos'] += 30
         combate_orc()
-        cenario2_CorpoAcorpo()
-
+        chanc()
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Anel dos Gigantes')
+            cenario2_CorpoAcorpo()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario2_CorpoAcorpo()
+        
+        
 def cenario2_CorpoAcorpo():
     clear_terminal()
     print("Capítulo 5: As Ruínas do Dragão...")
@@ -353,7 +356,7 @@ def cenario2_CorpoAcorpo():
     print('')
     txtlore(f"Nas profundezas das ruínas antigas, um dragão lendário dorme, guardando um tesouro incalculável. Para obter o tesouro, você deve provar seu valor enfrentando o dragão.", delay=0.05)
     p = input('Aperte enter para avançar')
-    combate_orc() #combate_dragao() criar o dragão mas até lá vai ser o orc dnv
+    combate_dragao() #combate_dragao() criar o dragão mas até lá vai ser o orc dnv
     if 'Anel dos Gigantes' in player['artefatos']:
         print("Usando o poder do Anel dos Gigantes, você luta com o dragão e consegue subjugar a besta, obtendo seu tesouro e mais pontos.")
         player['pontos'] += 100
@@ -361,8 +364,16 @@ def cenario2_CorpoAcorpo():
         cenario3_CorpoAcorpo()
     else:
         print("Sem o Anel dos Gigantes, a luta é feroz, mas sua coragem e habilidades permitem que você derrote o dragão.")
+        chanc()
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Escama do Dragão')
+            cenario3_CorpoAcorpo()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario3_CorpoAcorpo()
         player['pontos'] += 70
-        cenario3_CorpoAcorpo()
+
 
 def cenario3_CorpoAcorpo():
     print("Capítulo 6: O Encontro com o Mago Negro...")
@@ -378,8 +389,16 @@ def cenario3_CorpoAcorpo():
         cenario4_CorpoAcorpo()
     else:
         print("Sem a Escama do Dragão, você luta bravamente contra os defensores do Mago Negro, utilizando sua força e habilidades para derrotá-los.")
+        chanc()
+        if chanx <40:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato.')
+            player['artefatos'].append('Cetro do Mago')
+            cenario4_CorpoAcorpo()
+        else:
+            print('Após a vitoria contra o inimigo, você toma a força o artefato mas ele está quebrado.')
+            cenario4_CorpoAcorpo()
         player['pontos'] += 100
-        cenario4_CorpoAcorpo()
+
 
 def cenario4_CorpoAcorpo():
     print("Capítulo 7: A Batalha Final...")
