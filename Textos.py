@@ -14,6 +14,7 @@ from rich.emoji import Emoji
 from rich.align import Align
 import threading
 import keyboard
+from rich.panel import Panel
 
 
 
@@ -34,16 +35,29 @@ def display_npc_hp_bar(current_hp, max_hp,inimigo,i_level,i_xp, bar_length=10):
     white_squares = int(ratio * bar_length)
     black_squares = bar_length - white_squares
 
-    npc_hp_bar = "❤️ " * white_squares + "🤍" * black_squares
-    print(f"""------------------------------
-INIMIGO 💀 : \033[91m{inimigo}\033[0m 
-------------------------------
-Vida: {npc_hp_bar} 
-            {current_hp}/{max_hp}           
-Nivel 🌟 : {i_level} | Exp 📚 : {i_xp} 
-            """)
-    
-    return npc_hp_bar
+    npc_hp_bar = "[white]:heartpulse:[/white]" * white_squares + " :white_medium_square:" * black_squares
+
+    c = Console()
+
+    tabela = Table(
+        box=ROUNDED,
+        show_header=False,
+        show_edge=True,
+        show_lines=False,
+        width = 114,
+        padding=(-1,3),
+        border_style="bold red"
+    )
+
+    tabela.add_column() 
+    tabela.add_row(f"{'[b]PAINEL INIMIGO[/b]':^106}\n")
+    tabela.add_row(f"Nome 💀 : {inimigo.upper()}        Vida: {npc_hp_bar}   [red]{current_hp}/{max_hp}[/red]    Nivel 🌟 : {i_level}         Exp 📚 : {i_xp}")
+
+
+    tabela_centralizada = Align.center(tabela)
+
+    return c.print(tabela_centralizada)
+
 
 def display_player_hp_bar(current_hp, max_hp, bar_length=10):
     ratio = current_hp / max_hp
@@ -89,10 +103,11 @@ def mana_bar(man_atual,mana_max,bar_lenght=10):
 def Hud_player():
     c = Console()
     t = Text()
-    
+
+
     player_mana_bar = mana_bar(man_atual=player['mana'], mana_max=player['mana_max'])
     player_xp_bar = xp_bar(xp_atual=player['exp'], xp_max=player['exp_max'])
-    player_hp_bar = display_player_hp_bar(current_hp=player['vida'], max_hp=player['vida_max'])
+    player_hp_bar = display_player_hp_bar(current_hp=int(player['vida']), max_hp=player['vida_max'])
     if player['armaduras_equipadas'] == {}:
         print('vazio')
         player['armaduras_equipadas'] = {'Sem Armadura':{'nome_colorido':'Sem Armadura'}}
@@ -120,30 +135,28 @@ def Hud_player():
     # tamanho do inventário
     tot_inv = sum(len(item) for item in player['inventario'])
 
-    print('================')
-    print(len(armaduras_equipadas))
     tabela.add_column() 
     tabela.add_row(f"{'[b]PAINEL PLAYER[/b]':^106}\n")
     tabela.add_row(f"[b]NM[/b] 👤: {player['nome'].upper()[0:17]:<20}  [b]LV:[/b][yellow]:star: {player['level']:<4}[/yellow]     [b]CLASSE[/b]: {nome_classe_limpa:<12}   [b]ARMA[/]: {player['armas']['nome_colorido']:<15}[white b]CASH[/]:[i green]💲 {dinheiro_limpo}[/]")
     if player['armaduras_equipadas'] == {'Sem Armadura':{'nome_colorido':'Sem Armadura'}}:
-            tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<32}        [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+            tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{int(player['vida']):>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<32}        [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
     elif len(armaduras_equipadas) == 1:
-        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}                                    [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{int(player['vida']):>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}                                    [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
     elif len(armaduras_equipadas) == 2:
-        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}                          [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{int(player['vida']):>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}                          [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
     elif len(armaduras_equipadas) == 3:
-        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}                [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{int(player['vida']):>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}                [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
     elif len(armaduras_equipadas) == 4:
-        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}         [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
+        tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{int(player['vida']):>3} / {player['vida_max']:<3}[/]       [b]EQ[/b]: {armadura:<12}         [b]DEF[/b]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")
         
     tabela.add_row(f"[b]MP[/] {player_mana_bar:<10}     [cyan i]{player['mana']:>3} / {player['mana_max']:<3}[/]                  ")
     tabela.add_row(f"[b]XP[/] {player_xp_bar:<10}     [#ffA500 i]{player['exp']:>3} / {player['exp_max']:<3}[/]     📦 [b]INVENTARIO[/b]: {itens_inventario if tot_inv <= 40 else itens_inventario[0:40]+'...'}")
     tabela.add_section()
 
     # linha equipamento e defesa antiga
-    '''tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{player['vida']:>3} / {player['vida_max']:<3}[/]     [b]EQ[/]: {armadura}                                    [b]DEF[/]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")'''
+    '''tabela.add_row(f"[b]HP[/] {player_hp_bar:<10}     [red i]{int(player['vida']):>3} / {player['vida_max']:<3}[/]     [b]EQ[/]: {armadura}                                    [b]DEF[/]🔰:{player['defesa']:>3}/{player['defesa_max']:<3}")'''
 
-    tabela_centralizada = Align.left(tabela)
+    tabela_centralizada = Align.center(tabela)
 
     c.print(tabela_centralizada)
 
