@@ -29,7 +29,7 @@ def calcular_defesa_total(p):
     
 #isso é um puta de um comentário ooooooooooooooooooooooooooooooooooooooooooooooooooo
 
-def display_npc_hp_bar(current_hp, max_hp,inimigo,i_level,i_xp, bar_length=10):
+def display_npc_hp_bar(current_hp, max_hp,inimigo,i_level,i_xp, bar_length=10,i_dano=0,i_dano2=0):
     ratio = current_hp / max_hp
 
     white_squares = int(ratio * bar_length)
@@ -52,7 +52,7 @@ def display_npc_hp_bar(current_hp, max_hp,inimigo,i_level,i_xp, bar_length=10):
     tabela.add_column() 
     tabela.add_row(f"{'[b]PAINEL INIMIGO[/b]':^106}\n")
     tabela.add_row(f"Nome 💀 : {inimigo.upper()}        Vida: {npc_hp_bar}   [red]{current_hp}/{max_hp}[/red]    Nivel 🌟 : {i_level}         Exp 📚 : {i_xp}")
-
+    tabela.add_row(f"Golpe 1: {i_dano} ----- Golpe 2: {i_dano2}")
 
     tabela_centralizada = Align.center(tabela)
 

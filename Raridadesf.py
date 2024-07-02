@@ -1,5 +1,7 @@
 import random
 from rich import *
+
+
 # Define as escalas de raridade, seus multiplicadores e cores
 raridades = {
     'comum': {'multiplicador': 1.0, 'cor': '[white]'},         # Branco padrão
@@ -35,7 +37,7 @@ def aplicar_raridade(item, raridade):
         item['pontos'] = int(valores_iniciais['pontos'] * multiplicador)
     
     item['raridade'] = raridade
-    item['nome_colorido'] = f"{cor}{item['nome']}[/]"  # Atualiza o nome com a cor
+    item['nome_colorido'] = f"{cor}{item['nome']}"  # Atualiza o nome com a cor
 
     # linha cor antiga
     # item['nome_colorido'] = f"{cor}{item['nome']}[/{cor}]"
@@ -68,7 +70,7 @@ def gerar_raridades_itens(armas, equipamentos):
 # Função para exibir itens com cor
 def exibir_item_com_cor(item):
     cor = raridades[item['raridade']]['cor']
-    nome_colorido = f"{cor}{item['nome']}[/]"
+    nome_colorido = f"{cor}{item['nome']}"
     print(f"{nome_colorido}: {item}")
 
 # linha nome_colorido antigo
