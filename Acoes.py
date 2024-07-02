@@ -360,7 +360,7 @@ def luta(p,inimigo,i_vida,i_vida_m,p_vida,p_vida_m,i_pt,p_dano,i_dano,p_dano2,i_
         while p_vida >0:
                 Hud_player()
                 if i_vida > 0:
-                    display_npc_hp_bar(current_hp=i_vida,max_hp=i_vida_m,i_level=i_level,i_xp=i_xp,inimigo=inimigo,bar_length=10)
+                    display_npc_hp_bar(current_hp=i_vida,max_hp=i_vida_m,i_level=i_level,i_xp=i_xp,inimigo=inimigo,bar_length=10,i_dano=i_dano, i_dano2=i_dano2)
                     print('')
                     i_vida = atq_player(p,p_atq_1,p_dano,inimigo,i_vida,p_atq_2,p_dano2,p_cura)                   
 
