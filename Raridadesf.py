@@ -37,7 +37,8 @@ def aplicar_raridade(item, raridade):
         item['pontos'] = int(valores_iniciais['pontos'] * multiplicador)
     
     item['raridade'] = raridade
-    item['nome_colorido'] = f"{cor}{item['nome']}"  # Atualiza o nome com a cor
+    item['nome_colorido'] = f"{cor}{item['nome']}[/]"  # Atualiza o nome com a cor
+
 
     # linha cor antiga
     # item['nome_colorido'] = f"{cor}{item['nome']}[/{cor}]"

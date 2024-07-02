@@ -14,10 +14,10 @@ from rich import *
 
 
 def chance_drop_inimigos():
-    gerar_raridades_itens(equipamentos,armas)
+    #gerar_raridades_itens(equipamentos,armas)
     drop_c = randint(1,5)
     if drop_c == 1:
-        drop = int(input(f"Inimigo dropou um {equipamentos['capacete']['nome_colorido']} com raridade {equipamentos['capacete']['raridade']}. deseja pegar ? \n1>Sim \n2>Nao \n> "))
+        drop = int(input(f"Inimigo dropou um {equipamentos['capacete']['nome']} com raridade {equipamentos['capacete']['raridade']}. deseja pegar ? \n1>Sim \n2>Nao \n> "))
         if drop == 1:
             equip_cap()
             return
@@ -25,7 +25,7 @@ def chance_drop_inimigos():
             print('Você ignorou o item.')
             return
     if drop_c == 2:
-        drop = int(input(f"Inimigo dropou {equipamentos['peitoral']['nome_colorido']} com raridade {equipamentos['peitoral']['raridade']}. deseja pegar ? \n1>Sim \n2>Nao \n> "))
+        drop = int(input(f"Inimigo dropou {equipamentos['peitoral']['nome']} com raridade {equipamentos['peitoral']['raridade']}. deseja pegar ? \n1>Sim \n2>Nao \n> "))
         if drop == 1:
             equip_pet()
             return
@@ -33,7 +33,7 @@ def chance_drop_inimigos():
             print('Você ignorou o item.')
             return
     if drop_c == 3:
-        drop = int(input(f"Inimigo dropou uma {equipamentos['calca']['nome_colorido']} com raridade {equipamentos['calca']['raridade']}. deseja pegar ? \n1>Sim \n2>Nao \n> "))
+        drop = int(input(f"Inimigo dropou uma {equipamentos['calca']['nome']} com raridade {equipamentos['calca']['raridade']}. deseja pegar ? \n1>Sim \n2>Nao \n> "))
         if drop == 1:
             equip_cal()
             return
@@ -41,7 +41,7 @@ def chance_drop_inimigos():
             print('Você ignorou o item.')
             return
     if drop_c == 4:
-        drop = int(input(f"Inimigo dropou uma {equipamentos['bota']['nome_colorido']} com raridade {equipamentos['bota']['raridade']} deseja pegar ? \n1>Sim \n2>Nao \n> "))
+        drop = int(input(f"Inimigo dropou uma {equipamentos['bota']['nome']} com raridade {equipamentos['bota']['raridade']} deseja pegar ? \n1>Sim \n2>Nao \n> "))
         if drop == 1:
             equip_bot()
             return
@@ -49,7 +49,7 @@ def chance_drop_inimigos():
             print('Você ignorou o item.')
             return
     if drop_c == 5:
-        drop = int(input(f"Inimigo dropou uma {armas['espada_curta']['nome_colorido']}. com raridade {armas['espada_curta']['raridade']} deseja pegar ? \n1>Sim \n2>Nao \n> "))
+        drop = int(input(f"Inimigo dropou uma {armas['espada_curta']['nome']}. com raridade {armas['espada_curta']['raridade']} deseja pegar ? \n1>Sim \n2>Nao \n> "))
         if drop == 1:
             equip_espada_curta()
             return
@@ -659,3 +659,6 @@ combate_MagoObscuro()"""
 #inventario_m()
 
 
+
+gerar_raridades_itens(equipamentos,armas)
+chance_drop_inimigos()
