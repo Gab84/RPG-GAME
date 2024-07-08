@@ -58,7 +58,7 @@ xp_MagoObscuro = xp_multiplier * 30
 # <<<<<<<<<<<<<<<<<<<< Monstros Faceis >>>>>>>>>>>>>>>>>>>>>>>>>
 
 Bandido = {
-    'nome': 'Bandido',
+    'nome': 'BANDIDO',
     'level': dificuldades['level'],
     'dificuldade': dificuldades['facil'],
     'mult 1':1.2,
@@ -74,7 +74,7 @@ Bandido = {
 }
 
 Goblin = {
-    'nome': 'Goblin',
+    'nome': 'GOBLIN',
     'level': dificuldades['level'],
     'dificuldade': dificuldades['facil'],
     'mult 1':1.6,
@@ -90,7 +90,7 @@ Goblin = {
 }
 
 Orc_caverna = {
-    'nome': 'Orc_caverna',
+    'nome': 'ORC DA CAVERNA',
     'level': dificuldades['level'],
     'dificuldade': dificuldades['facil'],
     'mult 1':2.0,
@@ -108,7 +108,7 @@ Orc_caverna = {
 # <<<<<<<<<<<<<<<<<<<< Monstros Medios >>>>>>>>>>>>>>>>>>>>>>>>>
 
 Monstro_floresta = {
-    'nome': 'Monstro da Floresta',
+    'nome': 'MONSTRO DA FLORESTA',
     'level': dificuldades['level'],
     'dificuldade': dificuldades['medio'],
     'mult 1':2.2,
@@ -124,7 +124,7 @@ Monstro_floresta = {
 }
 
 Banche = {
-    'nome': 'Banche',
+    'nome': 'BANCHE',
     'level': dificuldades['level'],
     'dificuldade': dificuldades['medio'],
     'mult 1':2.9,
@@ -142,7 +142,7 @@ Banche = {
 # <<<<<<<<<<<<<<<<<<<< Monstros Dificeis >>>>>>>>>>>>>>>>>>>>>>>>>
 
 MagoObscuro = {
-    'nome': 'MagoObscuro',
+    'nome': 'MAGO OBSCURO',
     'level': dificuldades['level'],
     'dificuldade': dificuldades['dificil'],
     'mult 1':2.5,
@@ -158,7 +158,7 @@ MagoObscuro = {
 }
 
 dragao = {
-    'nome': 'dragao',
+    'nome': 'DRAGÃO',
     'level': dificuldades['level'],
     'dificuldade': dificuldades['dificil'],
     'mult 1':2.9,
