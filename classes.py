@@ -316,7 +316,8 @@ def eqp_arma_inicial(p, arma_nome):
 
 def equip_armadura(p, armadura_nome):
     armadura = copy.deepcopy(equipamentos[armadura_nome])
-    
+    if player['armaduras_equipadas'] == {'Sem Armadura':{'nome_colorido':'Sem Armadura'}}:
+        player["armaduras_equipadas"].clear()
     # Verifica se uma armadura da mesma categoria já está equipada
     if armadura_nome in p['armaduras_equipadas']:
         armadura_atual = p['armaduras_equipadas'][armadura_nome]

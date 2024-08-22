@@ -125,7 +125,7 @@ def Hud_player():
     )
 
     # limpeza nome da classe:
-    nome_classe_limpa = player['classe'][0].replace("1",'').replace('2','').strip().replace('>','').strip()
+    nome_classe_limpa = player['classe'].replace("1",'').replace('2','').strip().replace('>','')
     # separador de milhar:
     dinheiro_limpo = f"{player['dinheiro']:<10,.0f}".replace(',','.')
     # impressão de itens do inventário sem as aspas

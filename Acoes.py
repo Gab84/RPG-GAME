@@ -660,5 +660,5 @@ combate_MagoObscuro()"""
 
 
 
-gerar_raridades_itens(equipamentos,armas)
-chance_drop_inimigos()
+#gerar_raridades_itens(equipamentos,armas)
+#chance_drop_inimigos()

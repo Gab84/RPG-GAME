@@ -300,13 +300,7 @@ def reset_inimigos():
   
   
 
-print(Bandido)
-print(Goblin)
-print(Orc_caverna)
-print(Monstro_floresta)
-print(Banche)
-print(MagoObscuro)
-print(dragao)
+
 
 #VERSÃO ANTIGA DOS INIMIGOS CASO ALGO TENHA FICADO ERRADO
 
